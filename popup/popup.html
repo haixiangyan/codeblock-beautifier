@@ -1,16 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <style>
-        button {
-            height: 30px;
-            width: 30px;
-            outline: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="popup.css">
+    <title>Document</title>
 </head>
 <body>
-<button id="changeColor"></button>
+<div class="container">
+    <form class="highlight-form">
+        <p>Highlight Switch</p>
+        <div>
+            <input type="radio" id="isHighlight" name="highlightSwitch" value="on" checked>
+            <label for="isHighlight">On</label>
+
+            <input type="radio" id="notHighlight" name="highlightSwitch" value="off">
+            <label for="notHighlight">Off</label>
+        </div>
+    </form>
+
+    <form class="theme-form">
+        <p>Theme Switch</p>
+        <select name="themeSwitch" id="themeSwitch"></select>
+    </form>
+</div>
+<script src="../db/themes.js"></script>
 <script src="popup.js"></script>
 </body>
 </html>

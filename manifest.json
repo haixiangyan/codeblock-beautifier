@@ -26,7 +26,7 @@
       ],
       "js": [
         "lib/highlight/highlight.pack.js",
-        "content/scripts/langs.js",
+        "db/langs.js",
         "content/scripts/init.js"
       ]
     }
