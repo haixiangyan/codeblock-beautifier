@@ -20,8 +20,15 @@
   "content_scripts": [
     {
       "matches": ["https://*.medium.com/*"],
-      "css": ["content/styles/default.css","lib/highlight/styles/atom-one-dark.css"],
-      "js": ["lib/highlight/highlight.pack.js","content/scripts/init.js"]
+      "css": [
+        "content/styles/default.css",
+        "lib/highlight/styles/atom-one-dark.css"
+      ],
+      "js": [
+        "lib/highlight/highlight.pack.js",
+        "content/scripts/langs.js",
+        "content/scripts/init.js"
+      ]
     }
   ],
   "icons": {

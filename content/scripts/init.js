@@ -1,32 +1,33 @@
 class SelectionPanel {
-    constructor() {
-        this.view = null
+    constructor(preEl, codeEl) {
+        this.preEl = preEl
+        this.codeEl = codeEl
+        this.panel = this.generatePanelEl()
+        this.langSelector = this.generateLangSelector()
 
         this.init()
     }
 
     init() {
-        let panelEl= document.createElement('div')
+        this.panel.appendChild(this.langSelector)
 
-        let langSelectEl = this.generateLangSelector()
+        this.bindEvents()
+    }
 
-        panelEl.appendChild(langSelectEl)
-
-        this.view = panelEl
+    generatePanelEl() {
+        return document.createElement('div')
     }
 
     generateLangSelector() {
         let langSelectEl = document.createElement('select')
-        let selections = [
-            {value: 'javascript', text: 'JavaScript'},
-            {value: 'java', text: 'Java'},
-            {value: 'css', text: 'CSS'},
-            {value: 'python', text: 'Python'},
-        ]
+        let selections = langs
+
+        let lang = this.codeEl.classList[1]
 
         selections.forEach((selection) => {
             let optionEl = document.createElement('option')
             optionEl.setAttribute('value', selection.value)
+            optionEl.selected = (lang === selection.value)
             optionEl.innerText = selection.text
 
             langSelectEl.appendChild(optionEl)
@@ -34,25 +35,36 @@ class SelectionPanel {
 
         return langSelectEl
     }
+
+    bindEvents() {
+        this.langSelector.addEventListener('change', (event) => {
+            this.codeEl.setAttribute('class', `hljs ${event.target.value}`)
+            hljs.highlightBlock(this.codeEl)
+        })
+    }
 }
 
 class CodeBlock {
-    constructor() {
-        this.codes = Array.from(document.querySelectorAll('pre'))
+    constructor(preEl) {
+        this.preEl = preEl
+        this.codeEl = this.generateCodeEl(preEl)
+        this.selectionPanel = null
 
         this.init()
     }
 
     init() {
-        this.codes.forEach((preEl) => {
-            let codeEl = this.generateCodeEl(preEl)
+        this.rebuildPreEl()
+    }
 
-            let selectionPanel = new SelectionPanel()
+    rebuildPreEl() {
+        this.wrapCodeEl()
 
-            this.wrapCodeEl(preEl, codeEl)
+        hljs.highlightBlock(this.codeEl)
 
-            preEl.appendChild(selectionPanel.view)
-        })
+        this.selectionPanel = new SelectionPanel(this.preEl, this.codeEl)
+
+        this.wrapPanelEl()
     }
 
     generateCodeEl(preEl) {
@@ -63,19 +75,25 @@ class CodeBlock {
         return codeEl
     }
 
-    wrapCodeEl(preEl, codeEl) {
-        preEl.setAttribute('data-highlight', true)
-        preEl.innerHTML = ''
-        preEl.appendChild(codeEl)
+    wrapCodeEl() {
+        this.preEl.setAttribute('data-highlight', true)
+        this.preEl.innerHTML = ''
+        this.preEl.appendChild(this.codeEl)
+    }
+
+    wrapPanelEl() {
+        this.preEl.appendChild(this.selectionPanel.panel)
     }
 }
-
-
 
 function highlight() {
     hljs.initHighlighting()
 }
 
-let codeBlock = new CodeBlock()
+let preEls = Array.from(document.querySelectorAll('pre'))
 
-highlight()
+let codeBlocks = preEls.map((preEl) => {
+    return new CodeBlock(preEl)
+})
+
+// highlight()
