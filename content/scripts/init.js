@@ -89,11 +89,28 @@ class CodeBlock {
     }
 }
 
-function parse() {
-    let preEls = Array.from(document.querySelectorAll('pre'))
+class Parser {
+    constructor() {
+        this.preEls = Array.from(document.querySelectorAll('pre'))
 
-    let codeBlocks = preEls.map((preEl) => {
-        return new CodeBlock(preEl)
-    })
+        this.init()
+    }
+
+    init() {
+        chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+            if (request.isParse) {
+                console.log('Starting to parse this artcle');
+                this.parse()
+                sendResponse({result: "Finish"});
+            }
+        });
+    }
+
+    parse() {
+       this.preEls.map((preEl) => {
+            return new CodeBlock(preEl)
+        })
+    }
 }
 
+new Parser()

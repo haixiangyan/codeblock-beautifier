@@ -7,7 +7,6 @@
     "scripts": ["background/background.js"],
     "persistent": false
   },
-  "options_page": "options/options.html",
   "page_action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
