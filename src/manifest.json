@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
+  "name": "Code Block Beautifier",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "A chrome extension for beautifying code blocks in any websites that contain <pre/> elements.",
   "permissions": ["storage", "declarativeContent", "activeTab"],
   "web_accessible_resources": [
     "lib/highlight/styles/*.css"
