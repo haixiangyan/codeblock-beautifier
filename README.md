@@ -53,8 +53,8 @@ What I expect should be like this:
 
 So I build an extension to beautify code blocks in [Medium](www.medium.com).
 
-It does beautify all code blocks. It can also be used to other websites that contain `<pre/>`.
+It does beautify all code blocks. It can also be used for other websites that contain `<pre/>`.
 The only thing you need to do is to press the "Parse" button!
 
 ## Future
-There may have some problems that I haven't found for this extension. If you have any questions or find any bugs, please put an issue on this repo. Thank you!
+There may have some problems that I haven't found for this extension yet. If you have any questions or find any bugs, please put an issue on this repo. Thank you!
