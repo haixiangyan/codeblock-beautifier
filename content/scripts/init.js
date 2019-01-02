@@ -113,7 +113,7 @@ class Mixiner {
         this.mixin(els, els[nextIndex], nextIndex + 1);
 
         // Mixin (Start from the last second one)
-        curEl.innerText += "\n" + els[nextIndex].innerText;
+        curEl.innerText += "\n\n" + els[nextIndex].innerText;
 
         // Remove the next element
         els[nextIndex].remove();
@@ -198,7 +198,5 @@ class Parser {
         })
     }
 }
-
-
 
 new Parser()
