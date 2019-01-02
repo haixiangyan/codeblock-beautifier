@@ -10,9 +10,10 @@
 }
 
 .container form.highlight-form {
-    margin-bottom: 10px;
 }
 
 .container form.theme-form {
-    border-top: 1px solid black;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }

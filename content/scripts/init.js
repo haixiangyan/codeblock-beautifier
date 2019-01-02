@@ -89,15 +89,11 @@ class CodeBlock {
     }
 }
 
-chrome.storage.sync.get('isHighlight', (data) => {
-    if (data.isHighlight) {
-        let preEls = Array.from(document.querySelectorAll('pre'))
+function parse() {
+    let preEls = Array.from(document.querySelectorAll('pre'))
 
-        let codeBlocks = preEls.map((preEl) => {
-            return new CodeBlock(preEl)
-        })
-    }
-    else {
-        console.log('Enjoy Medium\'s code blocks...');
-    }
-})
+    let codeBlocks = preEls.map((preEl) => {
+        return new CodeBlock(preEl)
+    })
+}
+

@@ -10,20 +10,13 @@
 </head>
 <body>
 <div class="container">
-    <form class="highlight-form">
-        <p>Highlight Switch</p>
-        <div>
-            <input type="radio" id="onHighlight" name="highlightSwitch" value="on" checked>
-            <label for="onHighlight">On</label>
-
-            <input type="radio" id="offHighlight" name="highlightSwitch" value="off">
-            <label for="offHighlight">Off</label>
-        </div>
+    <form class="theme-form">
+        <h2>Theme Switch</h2>
+        <select name="themeSwitch" id="themeSwitch"></select>
     </form>
 
-    <form class="theme-form">
-        <p>Theme Switch</p>
-        <select name="themeSwitch" id="themeSwitch"></select>
+    <form class="parse-form">
+        <button id="parseBtn">Parse</button>
     </form>
 </div>
 <script src="../db/themes.js"></script>
