@@ -1,20 +1,18 @@
 pre[data-highlight] {
     padding: 0 !important;
     background: white !important;
-    border-radius: 10px;
-    box-shadow: 0px 0px 35px 0px rgba(201,195,201,1) !important;
+    /*border-radius: 10px;*/
+    /*box-shadow: 0px 0px 35px 0px rgba(201,195,201,1) !important;*/
 }
 
 code[data-highlight] {
     padding: 15px !important;
-    border-radius: 10px;
 }
 
 pre[data-highlight], code[data-highlight] {
-    font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif !important;
+    font-family: Menlo,Monaco,"Courier New",Courier,monospace !important;
     font-weight: 400;
-    font-style: normal;
-    font-size: 21px;
-    line-height: 1.58;
-    letter-spacing: -.003em;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    white-space: pre-wrap !important;
 }
