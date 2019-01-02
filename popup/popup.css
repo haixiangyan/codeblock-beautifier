@@ -1,0 +1,18 @@
+.container {
+    width: 150px;
+}
+
+.container, .container form {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container form.highlight-form {
+    margin-bottom: 10px;
+}
+
+.container form.theme-form {
+    border-top: 1px solid black;
+}

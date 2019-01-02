@@ -1,18 +1,39 @@
-// Change color of button
-chrome.storage.sync.get('color', function(data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-});
+class HighlightSwitch {
+    constructor() {
+        this.onHighlight = document.querySelector('#onHighlight')
+        this.offHighlight = document.querySelector('#offHighlight')
 
-// Change document color
-// changeColor.onclick = function(element) {
-//     let color = element.target.value;
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//         chrome.tabs.executeScript(
-//             tabs[0].id,
-//             {code: 'console.log("ok")'});
-//     });
-// };
+        this.init()
+    }
+
+    init() {
+        this.checkRadio()
+
+        this.bindEvent()
+    }
+
+    checkRadio() {
+        chrome.storage.sync.get('isHighlight', (data) => {
+            if (data.isHighlight) {
+                this.onHighlight.setAttribute('checked', true)
+                this.offHighlight.removeAttribute('checked')
+            }
+            else {
+                this.offHighlight.setAttribute('checked', true)
+                this.onHighlight.removeAttribute('checked')
+            }
+        })
+    }
+
+    bindEvent() {
+        this.onHighlight.addEventListener('change', (event) => {
+            chrome.storage.sync.set({isHighlight: true})
+        })
+        this.offHighlight.addEventListener('change', (event) => {
+            chrome.storage.sync.set({isHighlight: false})
+        })
+    }
+}
 
 function initOptions() {
     let themeSwitchEl = document.querySelector('#themeSwitch')
@@ -27,3 +48,5 @@ function initOptions() {
 }
 
 initOptions()
+
+new HighlightSwitch()
