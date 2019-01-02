@@ -17,3 +17,9 @@
     padding-bottom: 20px;
     border-bottom: 1px solid black;
 }
+
+.footer {
+    color: #ddd;
+    margin-top: 10px;
+    text-align: center;
+}
