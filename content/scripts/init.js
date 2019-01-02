@@ -89,10 +89,44 @@ class CodeBlock {
     }
 }
 
+class Mixiner {
+    elsMixin(els) {
+        let index = 0;
+
+        while (index < els.length) {
+            this.mixin(els, els[index], index + 1);
+            index = index + 1;
+        }
+    }
+
+    mixin(els, curEl, nextIndex) {
+        // Out of bound
+        if (nextIndex >= els.length) {
+            return;
+        }
+        // Not continuous
+        if (curEl.nextElementSibling !== els[nextIndex]) {
+            return;
+        }
+
+        // Recursion
+        this.mixin(els, els[nextIndex], nextIndex + 1);
+
+        // Mixin (Start from the last second one)
+        curEl.innerText += "\n" + els[nextIndex].innerText;
+
+        // Remove the next element
+        els[nextIndex].remove();
+        els.splice(nextIndex, 1);
+    }
+}
+
 class Parser {
     constructor() {
-        this.preEls = Array.from(document.querySelectorAll('pre'))
         this.linkEl = document.createElement('link')
+        this.preEls = Array.from(document.querySelectorAll('pre'))
+        // Pre-process <pre/> elements
+        this.preprocess()
 
         this.defaultTheme = 'atom-one-dark'
 
@@ -113,6 +147,11 @@ class Parser {
         this.switchTheme(this.defaultTheme)
 
         document.querySelector('head').appendChild(this.linkEl)
+    }
+
+    preprocess() {
+        let miner = new Mixiner()
+        miner.elsMixin(this.preEls)
     }
 
     getDefaultTheme() {
@@ -154,10 +193,12 @@ class Parser {
     }
 
     parse() {
-       this.preEls.map((preEl) => {
+        this.preEls.map((preEl) => {
             return new CodeBlock(preEl)
         })
     }
 }
+
+
 
 new Parser()
