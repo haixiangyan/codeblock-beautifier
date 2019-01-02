@@ -1,11 +1,14 @@
 pre[data-highlight] {
     padding: 0 !important;
     background: white !important;
-    /*border-radius: 10px;*/
-    /*box-shadow: 0px 0px 35px 0px rgba(201,195,201,1) !important;*/
+    border-bottom-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    box-shadow: 0px 0px 35px 0px rgba(201,195,201,1) !important;
 }
 
 code[data-highlight] {
+    margin: 0 !important;
     padding: 15px !important;
 }
 
