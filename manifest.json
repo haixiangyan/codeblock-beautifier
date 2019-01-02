@@ -3,6 +3,9 @@
   "version": "1.0",
   "description": "Build an Extension!",
   "permissions": ["storage", "declarativeContent", "activeTab"],
+  "web_accessible_resources": [
+    "lib/highlight/styles/*.css"
+  ],
   "background": {
     "scripts": ["background/background.js"],
     "persistent": false
@@ -18,10 +21,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.medium.com/*"],
+      "matches": ["<all_urls>"],
       "css": [
-        "content/styles/default.css",
-        "lib/highlight/styles/atom-one-dark.css"
+        "content/styles/default.css"
       ],
       "js": [
         "lib/highlight/highlight.pack.js",

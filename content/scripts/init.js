@@ -92,16 +92,45 @@ class CodeBlock {
 class Parser {
     constructor() {
         this.preEls = Array.from(document.querySelectorAll('pre'))
+        this.linkEl = document.createElement('link')
+        this.defaultTheme = 'atom-one-dark'
 
         this.init()
     }
 
     init() {
+        this.initThemeTag()
+
+        this.bindEvent()
+    }
+
+    initThemeTag() {
+        this.linkEl.setAttribute('rel', 'stylesheet')
+
+        // Set default theme
+        this.switchTheme(this.defaultTheme)
+
+        document.querySelector('head').appendChild(this.linkEl)
+    }
+
+    switchTheme(themeName) {
+        let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
+        this.linkEl.setAttribute('href', href)
+    }
+
+    bindEvent() {
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-            if (request.isParse) {
-                console.log('Starting to parse this artcle');
-                this.parse()
-                sendResponse({result: "Finish"});
+            switch (request.eventName) {
+                case 'parse':
+                    console.log('Starting to parse this article');
+                    this.parse()
+                    sendResponse({result: 'Finish'});
+                    break
+                case 'switchTheme':
+                    console.log('Switching theme')
+                    this.switchTheme(request.themeName)
+                    sendResponse({result: 'Finish'})
+                    break
             }
         });
     }
