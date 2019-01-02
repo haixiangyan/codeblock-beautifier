@@ -11,7 +11,7 @@ Check [this]() on Chrome app store.
 
 or
 
-[Download from ./dist/codeblock-beautifier.crx in this repo](./dist) it anyway.
+[Download from ./dist/codeblock-beautifier.crx](./dist/codeblock-beautifier.crx) it anyway.
 
 ## How to use
 
