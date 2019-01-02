@@ -93,13 +93,15 @@ class Parser {
     constructor() {
         this.preEls = Array.from(document.querySelectorAll('pre'))
         this.linkEl = document.createElement('link')
+
         this.defaultTheme = 'atom-one-dark'
 
         this.init()
     }
 
     init() {
-        this.initThemeTag()
+        // Get default theme and invoke corresponding CSS file
+        this.getDefaultTheme()
 
         this.bindEvent()
     }
@@ -111,6 +113,21 @@ class Parser {
         this.switchTheme(this.defaultTheme)
 
         document.querySelector('head').appendChild(this.linkEl)
+    }
+
+    getDefaultTheme() {
+        chrome.storage.sync.get(['theme'], (result) => {
+            console.log('Theme currently is ' + result.theme);
+            this.defaultTheme = result.theme || 'atom-one-dark'
+            this.initThemeTag()
+        });
+    }
+
+    setDefaultTheme(themeName) {
+        this.defaultTheme = themeName
+        chrome.storage.sync.set({theme: this.defaultTheme}, () => {
+            console.log('Theme is set to ' + this.defaultTheme);
+        });
     }
 
     switchTheme(themeName) {
@@ -129,6 +146,7 @@ class Parser {
                 case 'switchTheme':
                     console.log('Switching theme')
                     this.switchTheme(request.themeName)
+                    this.setDefaultTheme(request.themeName)
                     sendResponse({result: 'Finish'})
                     break
             }
