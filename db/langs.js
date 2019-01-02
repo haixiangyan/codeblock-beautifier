@@ -10,7 +10,7 @@ const langs = [
     {value: 'http', text: 'HTTP'},
     {value: 'ini', text: 'Ini'},
     {value: 'json', text: 'JSON'},
-    {value: 'java', text: 'java'},
+    {value: 'java', text: 'Java'},
     {value: 'javascript', text: 'JavaScript'},
     {value: 'makefile', text: 'Makefile'},
     {value: 'markdown', text: 'Markdown'},

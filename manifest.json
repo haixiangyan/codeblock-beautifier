@@ -28,6 +28,10 @@
       "js": [
         "lib/highlight/highlight.pack.js",
         "db/langs.js",
+        "content/scripts/Mixiner.js",
+        "content/scripts/SelectionPanel.js",
+        "content/scripts/CodeBlock.js",
+        "content/scripts/Parser.js",
         "content/scripts/init.js"
       ]
     }
