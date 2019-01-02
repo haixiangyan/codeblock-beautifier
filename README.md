@@ -5,18 +5,6 @@ A chrome extension for beautifying code blocks in any websites that contain `<pr
 
 ![Preview](screenshot/preview.gif)
 
-## Features
-
-* Beautify any code blocks wrapping in `<pre/>` automatically.
-
-* Can change to adapt any language highlight solutions manually.
-
-* Can switch any themes you like.
-
-* More than 80 themes are available.
-
-* More than 20 languages are available.
-
 ## Download
 
 Check [this]() on Chrome app store.
@@ -39,6 +27,19 @@ You may need to select the correct language manually.
 On the bottom left of each code block, there's a selector for you to pick the correct language.
 
 ![Languages Selector](screenshot/langSelector.PNG)
+
+
+## Features
+
+* Beautify any code blocks wrapping in `<pre/>` automatically.
+
+* Can change to adapt any language highlight solutions manually.
+
+* Can switch any themes you like.
+
+* More than 80 themes are available.
+
+* More than 20 languages are available.
 
 ## Purpose
 The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
