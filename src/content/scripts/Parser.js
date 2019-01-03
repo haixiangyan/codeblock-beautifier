@@ -14,7 +14,7 @@ class Parser {
 
     init() {
         // Get default theme and invoke corresponding CSS file
-        this.getDefaultTheme()
+        this.getDefaultThemeName()
 
         // Get default langs preference
         this.getDefaultLangsPrefer()
@@ -23,7 +23,7 @@ class Parser {
     }
 
     // Create a <link/> and set CSS file path according to default theme
-    initThemeTag() {
+    initThemeCSS() {
         this.linkEl.setAttribute('rel', 'stylesheet')
 
         // Set default theme
@@ -38,11 +38,11 @@ class Parser {
         miner.elsMixin(this.preEls)
     }
 
-    getDefaultTheme() {
+    getDefaultThemeName() {
         chrome.storage.sync.get(['themeName'], (result) => {
             this.themeName = result.themeName || 'atom-one-dark'
             console.log('Theme currently is ' + this.themeName);
-            this.initThemeTag()
+            this.initThemeCSS()
         });
     }
 
