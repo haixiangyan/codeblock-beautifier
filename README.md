@@ -7,7 +7,7 @@ A chrome extension for beautifying code blocks in any websites that contain `<pr
 
 ## Download
 
-Check [this]() on Chrome app store.
+Check [this]() on Chrome app store 🏚.
 
 or
 
@@ -31,24 +31,23 @@ On the bottom left of each code block, there's a selector for you to pick the co
 
 ## Features
 
-* Beautify any code blocks wrapping in `<pre/>` automatically.
+* ⚒Beautify any code blocks wrapping in `<pre/>` automatically.
 
-* Can change to adapt any language highlight solutions manually.
+* 🔌Can change to adapt any language highlight solutions manually.
 
-* Can switch any themes you like.
+* 🔬Can switch any themes you like.
 
-* More than 80 themes are available.
+* 🎉More than 80 themes are available.
 
-* More than 20 languages are available.
+* 🎊More than 20 languages are available.
 
 ## Purpose
 The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
-Well, I know there are several ways to embed codes in it, but some people (like me) don't wanna create a gist or code sandbox project
-to put codes on my block. So most of time, I see this:
+Well, I know there are several ways to embed codes in it, but some people (like me) don't wanna create a gist or code sandbox project to put codes on my block. So most of time, I see this 🙄:
 
 ![No highlight](screenshot/medium.PNG)
 
-What I expect should be like this:
+What I expect should be like this 😄:
 
 ![Highlight](screenshot/jianshu.PNG)
 
