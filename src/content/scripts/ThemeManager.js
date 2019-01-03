@@ -9,13 +9,12 @@ class ThemeManager {
     init() {
         this.generateTempDiv()
 
-        this.getProperties((properties) => {
-            console.log(properties);
-        })
+        this.getProperties((properties) => { })
     }
 
     generateTempDiv() {
         this.tempDiv = document.createElement('div')
+        this.tempDiv.style.display = 'none'
         this.tempDiv.className = 'hljs'
 
         document.body.appendChild(this.tempDiv)

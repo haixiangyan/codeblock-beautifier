@@ -4,6 +4,7 @@ class Parser {
         this.themeManager = new ThemeManager()
 
         this.linkEl = document.createElement('link')
+        this.codeBlocks = []
         this.preEls = Array.from(document.querySelectorAll('pre'))
         // Cache each element innerHTML for reverting
         this.preElsCache = this.preEls.map((preEl) => preEl.innerHTML)
@@ -77,8 +78,16 @@ class Parser {
     }
 
     switchTheme(themeName) {
+        // Switch to corresponding CSS file
         let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
         this.linkEl.setAttribute('href', href)
+
+        // Switch to corresponding theme properties
+        this.themeManager.getProperties((properties) => {
+            this.codeBlocks.forEach((codeBlock) => {
+                codeBlock.codeEl.style.backgroundColor = properties.backgroundColor
+            })
+        })
     }
 
     // Receive msg from popup.js
@@ -115,7 +124,7 @@ class Parser {
     parse() {
         // test
         this.themeManager.getProperties((properties) => {
-            this.preEls.map((preEl) => {
+            this.codeBlocks = this.preEls.map((preEl) => {
                 // Each time get a new Code Block
                 return new CodeBlock(preEl, this.langsPrefer, properties.backgroundColor)
             })
