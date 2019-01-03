@@ -4,6 +4,8 @@ class Parser {
 
         this.linkEl = document.createElement('link')
         this.preEls = Array.from(document.querySelectorAll('pre'))
+        // Cache each element innerHTML for reverting
+        this.preElsCache = this.preEls.map((preEl) => preEl.innerHTML)
         // Pre-process <pre/> elements
         this.preprocess()
 
@@ -102,7 +104,10 @@ class Parser {
 
     // Revert to original styles
     revert() {
-        console.log('Reverting');
+        for (let i = 0; i < this.preEls.length; i++) {
+            this.preEls[i].removeAttribute('data-highlight')
+            this.preEls[i].innerHTML = this.preElsCache[i]
+        }
     }
 
     // Parse the whole page
