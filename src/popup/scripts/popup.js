@@ -2,3 +2,4 @@
 new ThemesSwitch(themes)
 new LangsSwitch(langs)
 new ParseButton()
+new RevertButton()

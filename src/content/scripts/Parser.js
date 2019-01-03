@@ -86,15 +86,23 @@ class Parser {
                     console.log('Parsing this article');
                     this.parse()
                     break
+                case 'revert':
+                    this.revert()
+                    break
                 case 'switchThemeName':
                     this.switchTheme(request.themeName)
                     this.setThemeName(request.themeName)
                     break
                 case 'switchLangsPrefer':
                     this.setLangsPrefer(request.langsPrefer)
-                    break;
+                    break
             }
         });
+    }
+
+    // Revert to original styles
+    revert() {
+        console.log('Reverting');
     }
 
     // Parse the whole page
