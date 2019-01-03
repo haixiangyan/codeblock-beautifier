@@ -1,4 +1,6 @@
 # Code Block Beautifier 
+![Logo](screenshot/icon-origin.png)
+
 A chrome extension for beautifying code blocks in any websites that contain `<pre/>` elements. It is developed based on [highlight.js](https://highlightjs.org/) and [Chrome Extension API](https://developer.chrome.com/home).
 
 ## Screenshot
