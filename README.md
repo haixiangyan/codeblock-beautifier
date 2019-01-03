@@ -58,3 +58,24 @@ The only thing you need to do is to press the "Parse" button!
 
 ## Future
 There may have some problems that I haven't found for this extension yet. If you have any questions or find any bugs, please put an issue on this repo. Thank you!
+
+## Change Log
+
+### v1.0
+
+* Add parsing action. It is able to parse code blocks and apply given theme.
+
+* Add styles to beautify each code blocks.
+
+### v1.1
+
+* Enable user to select highlight languages with adding a panel below code blocks. 
+
+* Enable user to select different theme and apply to all code blocks.
+
+### v1.2
+
+* Enable user to select highlight languages preference. Because highlight.js may detect wrong languages,
+setting highlight languages preference can let it detect correctly.
+
+* Add revert action. User can revert parsed code blocks to original styles.
