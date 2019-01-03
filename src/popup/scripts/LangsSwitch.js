@@ -1,7 +1,7 @@
 class LangsSwitch {
     constructor(langs) {
         this.langs = langs
-        this.langsPrefer = []
+        this.langsPrefer = langs
         this.langsSwitch = document.querySelector('#langsSwitch')
 
         this.init()
@@ -9,18 +9,54 @@ class LangsSwitch {
 
     init() {
         this.getDefaultLangsPrefer()
+
+        // Bind switching language preference event
+        this.bindEvent()
+    }
+
+    bindEvent() {
+        // Use event hosting to listen to check event
+        this.langsSwitch.addEventListener('click', (event) => {
+            let checkingEl = event.target
+            if (checkingEl.getAttribute('type') !== 'checkbox') {
+                return
+            }
+
+            if (checkingEl.checked) {
+                // Add this language
+                this.langsPrefer.push({
+                    value: checkingEl.value,
+                    text: checkingEl.innerText
+                })
+            }
+            else {
+                // Remove this language
+                this.langsPrefer = this.langsPrefer.filter((langPrefer) => {
+                    return langPrefer.value !== checkingEl.value
+                })
+            }
+            this.setLangsPrefer()
+        })
     }
 
     getDefaultLangsPrefer() {
         chrome.storage.sync.get(['langsPrefer'], (result) => {
-            this.langsPrefer = result.langsPrefer ? result.langsPrefer : this.langs
+            this.langsPrefer = result.langsPrefer ? result.langsPrefer : this.langsPrefer
 
             this.generateCheckboxes()
         });
     }
 
+    setLangsPrefer() {
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            chrome.tabs.sendMessage(
+                tabs[0].id,
+                {eventName: 'switchLangsPrefer', langsPrefer: this.langsPrefer});
+        });
+    }
+
     generateCheckboxes() {
-        let langsPreferStr = JSON.stringify(this.langsPrefer)
+        let langsPreferValue = this.langsPrefer.map((langPrefer) => langPrefer.value)
 
         this.langs.forEach((lang) => {
             let spanEl = document.createElement('span')
@@ -30,7 +66,7 @@ class LangsSwitch {
             checkboxEl.setAttribute('type', 'checkbox')
             checkboxEl.setAttribute('name', 'langsPrefer')
             checkboxEl.setAttribute('value', lang.value)
-            if (langsPreferStr.indexOf(JSON.stringify(lang)) > -1) {
+            if (langsPreferValue.indexOf(lang.value) > -1) {
                 checkboxEl.setAttribute('checked', true)
             }
 

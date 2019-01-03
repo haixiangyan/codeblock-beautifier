@@ -49,7 +49,12 @@ class Parser {
     getDefaultLangsPrefer() {
         chrome.storage.sync.get(['langsPrefer'], (result) => {
             this.langsPrefer = result.langsPrefer ? result.langsPrefer : this.langsPrefer
-            console.log('Langs preference is ' + this.langsPrefer);
+            console.log('Langs preference is ' + this.langsPrefer.map((langPrefer) => langPrefer.value));
+
+            // Register language preference to hljs
+            hljs.configure({
+                languages: this.langsPrefer.map((langPrefer) => langPrefer.value)
+            })
         });
     }
 
@@ -60,10 +65,11 @@ class Parser {
         });
     }
 
-    setLangPrefer(langsPrefer) {
+    setLangsPrefer(langsPrefer) {
         this.langsPrefer = langsPrefer
-        chrome.storage.sync.set({langs: this.langsPrefer}, () => {
-            console.log('Langs preference is set to ' + this.langsPrefer);
+        chrome.storage.sync.set({langsPrefer: this.langsPrefer}, () => {
+            console.log('Langs preference is set to ' + this.langsPrefer.map(((langPrefer) => langPrefer.value)));
+            alert('Refresh this page to apply your language preference!')
         });
     }
 
@@ -80,12 +86,12 @@ class Parser {
                     console.log('Parsing this article');
                     this.parse()
                     break
-                case 'switchTheme':
+                case 'switchThemeName':
                     this.switchTheme(request.themeName)
                     this.setThemeName(request.themeName)
                     break
-                case 'setLangsPrefer':
-                    this.setLangPrefer(request.langsPrefer)
+                case 'switchLangsPrefer':
+                    this.setLangsPrefer(request.langsPrefer)
                     break;
             }
         });

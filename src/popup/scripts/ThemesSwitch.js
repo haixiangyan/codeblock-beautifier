@@ -9,6 +9,7 @@ class ThemesSwitch {
     init() {
         this.getDefaultThemeName()
 
+        // Bind switching theme event
         this.bindEvent()
     }
 
@@ -18,7 +19,7 @@ class ThemesSwitch {
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 chrome.tabs.sendMessage(
                     tabs[0].id,
-                    {eventName: 'switchTheme', themeName: event.target.value});
+                    {eventName: 'switchThemeName', themeName: event.target.value});
             });
         })
     }
