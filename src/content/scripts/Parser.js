@@ -1,6 +1,7 @@
 class Parser {
     constructor(langs) {
-        this.langs = langs
+        this.langsPrefer = langs
+
         this.linkEl = document.createElement('link')
         this.preEls = Array.from(document.querySelectorAll('pre'))
         // Pre-process <pre/> elements
@@ -14,6 +15,9 @@ class Parser {
     init() {
         // Get default theme and invoke corresponding CSS file
         this.getDefaultTheme()
+
+        // Get default langs preference
+        this.getDefaultLangsPrefer()
 
         this.bindEvent()
     }
@@ -36,20 +40,31 @@ class Parser {
 
     getDefaultTheme() {
         chrome.storage.sync.get(['themeName'], (result) => {
-            console.log('Theme currently is ' + result.themeName);
             this.themeName = result.themeName || 'atom-one-dark'
+            console.log('Theme currently is ' + this.themeName);
             this.initThemeTag()
         });
     }
 
-    setDefaultTheme(themeName) {
+    getDefaultLangsPrefer() {
+        chrome.storage.sync.get(['langsPrefer'], (result) => {
+            this.langsPrefer = result.langsPrefer ? result.langsPrefer : this.langsPrefer
+            console.log('Langs preference is ' + this.langsPrefer);
+        });
+    }
+
+    setThemeName(themeName) {
         this.themeName = themeName
         chrome.storage.sync.set({themeName: this.themeName}, () => {
             console.log('Theme is set to ' + this.themeName);
         });
     }
 
-    setLangPrefer(langs) {
+    setLangPrefer(langsPrefer) {
+        this.langsPrefer = langsPrefer
+        chrome.storage.sync.set({langs: this.langsPrefer}, () => {
+            console.log('Langs preference is set to ' + this.langsPrefer);
+        });
     }
 
     switchTheme(themeName) {
@@ -62,16 +77,15 @@ class Parser {
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             switch (request.eventName) {
                 case 'parse':
-                    console.log('Starting to parse this article');
+                    console.log('Parsing this article');
                     this.parse()
                     break
                 case 'switchTheme':
-                    console.log('Switching theme')
                     this.switchTheme(request.themeName)
-                    this.setDefaultTheme(request.themeName)
+                    this.setThemeName(request.themeName)
                     break
-                case 'setLangs':
-                    console.log('Your language preference is set')
+                case 'setLangsPrefer':
+                    this.setLangPrefer(request.langsPrefer)
                     break;
             }
         });
@@ -81,7 +95,7 @@ class Parser {
     parse() {
         this.preEls.map((preEl) => {
             // Each time get a new Code Block
-            return new CodeBlock(preEl, this.langs)
+            return new CodeBlock(preEl, this.langsPrefer)
         })
     }
 }

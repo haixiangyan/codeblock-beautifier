@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="styles/popup.css">
     <title>popup</title>
 </head>
 <body>
@@ -15,17 +15,24 @@
         <select name="themeSwitch" id="themeSwitch"></select>
     </form>
 
-    <form class="parse-form">
-        <button id="parseBtn">Parse</button>
+    <form class="langs-form">
+        <h2>Language Preference</h2>
+        <div id="langsSwitch"></div>
     </form>
+
+    <div class="parse-form">
+        <button id="parseBtn">Parse</button>
+    </div>
 </div>
 <footer class="footer">
     Made By Haixiang Yan &copy; 2019
 </footer>
 <script src="../db/themes.js"></script>
-<script src="ThemeOptions.js"></script>
-<script src="ThemeSwitch.js"></script>
-<script src="ParseButton.js"></script>
-<script src="popup.js"></script>
+<script src="../db/langs.js"></script>
+<script src="scripts/ThemeOptions.js"></script>
+<script src="scripts/ThemeSwitch.js"></script>
+<script src="scripts/LangsCheckboxes.js"></script>
+<script src="scripts/ParseButton.js"></script>
+<script src="scripts/popup.js"></script>
 </body>
 </html>

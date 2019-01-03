@@ -1,0 +1,38 @@
+.container {
+    width: 250px;
+}
+
+.container form {
+    width: 90%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.container form:first-child {
+    margin-bottom: 0;
+}
+
+.container, .container form {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .langs-form div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .langs-form span {
+    margin: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    color: #ddd;
+    margin-top: 10px;
+    text-align: center;
+}

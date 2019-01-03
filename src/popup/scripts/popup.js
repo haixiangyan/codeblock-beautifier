@@ -1,4 +1,5 @@
 // From themes.js
 new ThemeOptions(themes)
-new ParseButton()
 new ThemeSwitch()
+new LangsCheckboxes(langs)
+new ParseButton()
