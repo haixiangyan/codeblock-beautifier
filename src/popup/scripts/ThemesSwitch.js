@@ -1,13 +1,26 @@
-class ThemeOptions {
+class ThemesSwitch {
     constructor(themes) {
         this.themes = themes
-        this.themeSwitchEl = document.querySelector('#themeSwitch')
+        this.themesSwitchEl = document.querySelector('#themesSwitch')
 
         this.init()
     }
 
     init() {
         this.getDefaultThemeName()
+
+        this.bindEvent()
+    }
+
+    bindEvent() {
+        this.themesSwitchEl.addEventListener('change', (event) => {
+            // Send msg to parse switch theme
+            chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+                chrome.tabs.sendMessage(
+                    tabs[0].id,
+                    {eventName: 'switchTheme', themeName: event.target.value});
+            });
+        })
     }
 
     getDefaultThemeName() {
@@ -26,7 +39,7 @@ class ThemeOptions {
                 optionEl.setAttribute('selected', true)
             }
 
-            this.themeSwitchEl.appendChild(optionEl)
+            this.themesSwitchEl.appendChild(optionEl)
         })
     }
 }

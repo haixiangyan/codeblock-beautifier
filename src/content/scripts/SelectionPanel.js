@@ -1,8 +1,8 @@
 class SelectionPanel {
-    constructor(preEl, codeEl, langs) {
+    constructor(preEl, codeEl, langsPrefer) {
         this.preEl = preEl
         this.codeEl = codeEl
-        this.langs = langs
+        this.langsPrefer = langsPrefer
         this.lang = this.codeEl.classList[1]
         this.panel = this.generatePanelEl()
         this.langSelector = this.generateLangSelector()
@@ -24,7 +24,7 @@ class SelectionPanel {
         let langSelectEl = document.createElement('select')
 
         // From langs.js, building options for <select/>
-        this.langs.forEach((selection) => {
+        this.langsPrefer.forEach((selection) => {
             let optionEl = document.createElement('option')
             optionEl.setAttribute('value', selection.value)
             optionEl.selected = (this.lang === selection.value)

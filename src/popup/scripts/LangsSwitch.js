@@ -1,4 +1,4 @@
-class LangsCheckboxes {
+class LangsSwitch {
     constructor(langs) {
         this.langs = langs
         this.langsPrefer = []

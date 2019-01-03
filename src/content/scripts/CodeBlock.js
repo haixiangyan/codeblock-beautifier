@@ -1,7 +1,7 @@
 class CodeBlock {
-    constructor(preEl, langs) {
+    constructor(preEl, langsPrefer) {
         this.preEl = preEl
-        this.langs = langs
+        this.langsPrefer = langsPrefer
         this.codeEl = this.generateCodeEl(preEl)
         this.selectionPanel = null
 
@@ -18,7 +18,7 @@ class CodeBlock {
         hljs.highlightBlock(this.codeEl)
 
         // Init selection panel to let user redefine language
-        this.selectionPanel = new SelectionPanel(this.preEl, this.codeEl, this.langs)
+        this.selectionPanel = new SelectionPanel(this.preEl, this.codeEl, this.langsPrefer)
         this.wrapPanelEl()
     }
 
