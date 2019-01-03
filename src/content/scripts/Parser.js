@@ -1,6 +1,7 @@
 class Parser {
     constructor(langs) {
         this.langsPrefer = langs
+        this.themeManager = new ThemeManager()
 
         this.linkEl = document.createElement('link')
         this.preEls = Array.from(document.querySelectorAll('pre'))
@@ -113,27 +114,11 @@ class Parser {
     // Parse the whole page
     parse() {
         // test
-        this.getHighlightBg((bgColor) => {
+        this.themeManager.getProperties((properties) => {
             this.preEls.map((preEl) => {
                 // Each time get a new Code Block
-                return new CodeBlock(preEl, this.langsPrefer, bgColor)
+                return new CodeBlock(preEl, this.langsPrefer, properties.backgroundColor)
             })
         })
-    }
-
-    getHighlightBg(callback) {
-        let div = document.createElement('div')
-        div.className = 'hljs'
-        div.id = 'test'
-        document.body.appendChild(div)
-        setTimeout(() => {
-            console.log('1', getComputedStyle(div, null).getPropertyValue("background-color"));
-            // Get theme highlight background color
-            let bgColor = getComputedStyle(div, null).backgroundColor
-
-            callback(bgColor)
-
-            document.body.removeChild(div)
-        }, 200)
     }
 }

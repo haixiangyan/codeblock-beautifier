@@ -1,6 +1,6 @@
 {
   "name": "Code Block Beautifier",
-  "version": "1.0",
+  "version": "1.2",
   "description": "A chrome extension for beautifying code blocks in any websites that contain <pre/> elements.",
   "permissions": ["storage", "declarativeContent", "activeTab"],
   "web_accessible_resources": [
@@ -28,6 +28,7 @@
       "js": [
         "lib/highlight/highlight.pack.js",
         "db/langs.js",
+        "content/scripts/ThemeManager.js",
         "content/scripts/Mixiner.js",
         "content/scripts/SelectionPanel.js",
         "content/scripts/CodeBlock.js",
