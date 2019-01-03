@@ -1,1 +1,3 @@
-new Parser(langs)
+window.addEventListener('load', () => {
+    new Parser(langs)
+})

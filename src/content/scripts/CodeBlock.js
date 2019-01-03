@@ -1,7 +1,8 @@
 class CodeBlock {
-    constructor(preEl, langsPrefer) {
+    constructor(preEl, langsPrefer, bgColor) {
         this.preEl = preEl
         this.langsPrefer = langsPrefer
+        this.bgColor = bgColor
         this.codeEl = this.generateCodeEl(preEl)
         this.selectionPanel = null
 
@@ -25,6 +26,7 @@ class CodeBlock {
     generateCodeEl(preEl) {
         let codeEl = document.createElement('code')
         codeEl.setAttribute('data-highlight', true)
+        codeEl.style.backgroundColor = this.bgColor
         codeEl.innerText = preEl.innerText
 
         return codeEl

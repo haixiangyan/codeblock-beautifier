@@ -112,9 +112,28 @@ class Parser {
 
     // Parse the whole page
     parse() {
-        this.preEls.map((preEl) => {
-            // Each time get a new Code Block
-            return new CodeBlock(preEl, this.langsPrefer)
+        // test
+        this.getHighlightBg((bgColor) => {
+            this.preEls.map((preEl) => {
+                // Each time get a new Code Block
+                return new CodeBlock(preEl, this.langsPrefer, bgColor)
+            })
         })
+    }
+
+    getHighlightBg(callback) {
+        let div = document.createElement('div')
+        div.className = 'hljs'
+        div.id = 'test'
+        document.body.appendChild(div)
+        setTimeout(() => {
+            console.log('1', getComputedStyle(div, null).getPropertyValue("background-color"));
+            // Get theme highlight background color
+            let bgColor = getComputedStyle(div, null).backgroundColor
+
+            callback(bgColor)
+
+            document.body.removeChild(div)
+        }, 200)
     }
 }
