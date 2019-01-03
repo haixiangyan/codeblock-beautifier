@@ -7,8 +7,8 @@ class ThemeOptions {
     }
 
     init() {
-        chrome.storage.sync.get(['theme'], (result) => {
-            this.generateOptions(result.theme)
+        chrome.storage.sync.get(['themeName'], (result) => {
+            this.generateOptions(result.themeName)
         });
     }
 

@@ -6,7 +6,7 @@ class Parser {
         // Pre-process <pre/> elements
         this.preprocess()
 
-        this.defaultTheme = 'atom-one-dark'
+        this.themeName = 'atom-one-dark'
 
         this.init()
     }
@@ -23,7 +23,7 @@ class Parser {
         this.linkEl.setAttribute('rel', 'stylesheet')
 
         // Set default theme
-        this.switchTheme(this.defaultTheme)
+        this.switchTheme(this.themeName)
 
         document.querySelector('head').appendChild(this.linkEl)
     }
@@ -35,18 +35,21 @@ class Parser {
     }
 
     getDefaultTheme() {
-        chrome.storage.sync.get(['theme'], (result) => {
-            console.log('Theme currently is ' + result.theme);
-            this.defaultTheme = result.theme || 'atom-one-dark'
+        chrome.storage.sync.get(['themeName'], (result) => {
+            console.log('Theme currently is ' + result.themeName);
+            this.themeName = result.themeName || 'atom-one-dark'
             this.initThemeTag()
         });
     }
 
     setDefaultTheme(themeName) {
-        this.defaultTheme = themeName
-        chrome.storage.sync.set({theme: this.defaultTheme}, () => {
-            console.log('Theme is set to ' + this.defaultTheme);
+        this.themeName = themeName
+        chrome.storage.sync.set({themeName: this.themeName}, () => {
+            console.log('Theme is set to ' + this.themeName);
         });
+    }
+
+    setLangPrefer(langs) {
     }
 
     switchTheme(themeName) {
@@ -61,14 +64,15 @@ class Parser {
                 case 'parse':
                     console.log('Starting to parse this article');
                     this.parse()
-                    sendResponse({result: 'Finish'});
                     break
                 case 'switchTheme':
                     console.log('Switching theme')
                     this.switchTheme(request.themeName)
                     this.setDefaultTheme(request.themeName)
-                    sendResponse({result: 'Finish'})
                     break
+                case 'setLangs':
+                    console.log('Your language preference is set')
+                    break;
             }
         });
     }
