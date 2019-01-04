@@ -5,7 +5,9 @@ A chrome extension for beautifying code blocks in any websites that contain `<pr
 
 ## Screenshot
 
-[![Extension Preview](https://img.youtube.com/vi/3MbCE7eEYr8/0.jpg)](https://www.youtube.com/watch?v=3MbCE7eEYr8)
+Click picture below to preview on YouTube!
+
+[![Extension Preview](https://img.youtube.com/vi/54oWSp4UbME/0.jpg)](https://www.youtube.com/watch?v=54oWSp4UbME)
 
 ## Download
 
