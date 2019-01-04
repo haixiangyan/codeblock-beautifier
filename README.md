@@ -5,7 +5,7 @@ A chrome extension for beautifying code blocks in any websites that contain `<pr
 
 ## Screenshot
 
-![Preview](screenshot/preview.gif)
+[![Extension Preview](https://img.youtube.com/vi/3MbCE7eEYr8/0.jpg)](https://www.youtube.com/watch?v=3MbCE7eEYr8)
 
 ## Download
 
