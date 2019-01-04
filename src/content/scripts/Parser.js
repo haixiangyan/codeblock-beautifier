@@ -1,19 +1,21 @@
 class Parser {
     constructor(langs) {
+        // Storage
         this.langsPrefer = langs
-        this.themeManager = new ThemeManager()
-
+        this.themeName = 'atom-one-dark'
         this.isAutoParse = false
 
-        this.linkEl = null
-        this.codeBlocks = []
+        this.themeManager = new ThemeManager()
+
         this.preEls = Array.from(document.querySelectorAll('pre'))
+
+        this.linkEl = null
+
+        this.codeBlocks = []
         // Cache each element innerHTML for reverting
         this.preElsCache = []
         // Pre-process <pre/> elements
         this.preprocess()
-
-        this.themeName = 'atom-one-dark'
 
         this.init()
     }
