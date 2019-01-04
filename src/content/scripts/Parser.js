@@ -7,7 +7,7 @@ class Parser {
         this.codeBlocks = []
         this.preEls = Array.from(document.querySelectorAll('pre'))
         // Cache each element innerHTML for reverting
-        this.preElsCache = this.preEls.map((preEl) => preEl.innerHTML)
+        this.preElsCache = []
         // Pre-process <pre/> elements
         this.preprocess()
 
@@ -17,6 +17,9 @@ class Parser {
     }
 
     init() {
+        // Cache for revert
+        this.cachePreElsContent()
+
         // Get default theme and invoke corresponding CSS file
         this.getDefaultThemeName()
 
@@ -24,6 +27,18 @@ class Parser {
         this.getDefaultLangsPrefer()
 
         this.bindEvent()
+    }
+
+    cachePreElsContent() {
+        this.preEls.forEach((preEl) => {
+            // Contain <code/>
+            if (preEl.firstElementChild && preEl.firstElementChild.tagName === 'CODE') {
+                this.preElsCache.push(preEl.firstElementChild)
+            }
+            else {
+                this.preElsCache.push(preEl.innerText)
+            }
+        })
     }
 
     // Create a <link/> and set CSS file path according to default theme
@@ -125,7 +140,13 @@ class Parser {
     revert() {
         for (let i = 0; i < this.preEls.length; i++) {
             this.preEls[i].removeAttribute('data-highlight')
-            this.preEls[i].innerHTML = this.preElsCache[i]
+            // Check content type
+            if (typeof this.preElsCache[i] === 'string') {
+                this.preEls[i].innerText = this.preElsCache[i]
+            }
+            else {
+                this.preEls[i].appendChild(this.preElsCache[i])
+            }
         }
     }
 
