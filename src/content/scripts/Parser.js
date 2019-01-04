@@ -125,7 +125,7 @@ class Parser {
         this.themeManager.getProperties((properties) => {
             this.codeBlocks = this.preEls.map((preEl) => {
                 // Each time get a new Code Block
-                return new CodeBlock(preEl, this.langsPrefer, properties.backgroundColor)
+                return new CodeBlock(preEl, this.langsPrefer, properties)
             })
         })
     }
