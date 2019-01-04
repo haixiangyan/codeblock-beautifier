@@ -24,11 +24,11 @@ class SelectionPanel {
         let langSelectEl = document.createElement('select')
 
         // From langs.js, building options for <select/>
-        this.langsPrefer.forEach((selection) => {
+        this.langsPrefer.forEach((langPrefer) => {
             let optionEl = document.createElement('option')
-            optionEl.setAttribute('value', selection.value)
-            optionEl.selected = (this.lang === selection.value)
-            optionEl.innerText = selection.text
+            optionEl.setAttribute('value', langPrefer.value)
+            optionEl.selected = (this.lang === langPrefer.value)
+            optionEl.innerText = langPrefer.text
 
             langSelectEl.appendChild(optionEl)
         })

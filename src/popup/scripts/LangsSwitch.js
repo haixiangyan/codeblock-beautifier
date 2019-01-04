@@ -21,12 +21,13 @@ class LangsSwitch {
             if (checkingEl.getAttribute('type') !== 'checkbox') {
                 return
             }
+            let labelEl = checkingEl.parentElement.querySelector('label')
 
             if (checkingEl.checked) {
                 // Add this language
                 this.langsPrefer.push({
                     value: checkingEl.value,
-                    text: checkingEl.innerText
+                    text: labelEl.innerText
                 })
             }
             else {
