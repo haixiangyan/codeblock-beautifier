@@ -3,7 +3,7 @@ class Parser {
         this.langsPrefer = langs
         this.themeManager = new ThemeManager()
 
-        this.linkEl = document.createElement('link')
+        this.linkEl = null
         this.codeBlocks = []
         this.preEls = Array.from(document.querySelectorAll('pre'))
         // Cache each element innerHTML for reverting
@@ -28,6 +28,7 @@ class Parser {
 
     // Create a <link/> and set CSS file path according to default theme
     initThemeCSS() {
+        this.linkEl = document.createElement('link')
         this.linkEl.setAttribute('rel', 'stylesheet')
 
         // Set default theme
@@ -128,6 +129,9 @@ class Parser {
 
     // Parse the whole page
     parse() {
+        if (!this.linkEl) {
+            this.initThemeCSS()
+        }
         // test
         this.themeManager.getProperties((properties) => {
             this.codeBlocks = this.preEls.map((preEl) => {
