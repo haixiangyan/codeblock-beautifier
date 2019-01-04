@@ -73,7 +73,6 @@ class Parser {
         this.langsPrefer = langsPrefer
         chrome.storage.sync.set({langsPrefer: this.langsPrefer}, () => {
             console.log('Langs preference is set to ' + this.langsPrefer.map(((langPrefer) => langPrefer.value)));
-            alert('Refresh this page to apply your language preference!')
         });
     }
 
