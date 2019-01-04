@@ -33,7 +33,7 @@ class Parser {
         this.preEls.forEach((preEl) => {
             // Contain <code/>
             if (preEl.firstElementChild && preEl.firstElementChild.tagName === 'CODE') {
-                this.preElsCache.push(preEl.firstElementChild)
+                this.preElsCache.push(preEl.firstElementChild.cloneNode(true))
             }
             else {
                 this.preElsCache.push(preEl.innerText)
@@ -146,6 +146,7 @@ class Parser {
                 this.preEls[i].innerText = this.preElsCache[i]
             }
             else {
+                this.preEls[i].innerHTML = ''
                 this.preEls[i].appendChild(this.preElsCache[i])
             }
         }
