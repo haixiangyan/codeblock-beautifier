@@ -98,7 +98,7 @@ class Parser {
     switchTheme(themeName) {
         // Switch to corresponding CSS file
         let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
-        this.linkEl.setAttribute('href', href)
+        this.linkEl && this.linkEl.setAttribute('href', href)
 
         // Switch to corresponding theme properties
         this.themeManager.getProperties((properties) => {
