@@ -90,3 +90,15 @@ setting highlight languages preference can let it detect correctly.
 * Add background color of theme to inline style of `<code/>` to adapt most websites.
 
 * Add auto detection for those websites that have already defined what languages should be highlighted.
+
+* Add auto parsing action.
+
+* Fix bugs:
+
+    * Remove loading CSS files at the beginning
+    
+    * Compatible with some websites that have CSS styles on `<pre/>` or `<code/>`
+    
+    * Reverting to original HTML elements.
+    
+    * Can switch language preference immediately.
