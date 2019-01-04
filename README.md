@@ -41,6 +41,8 @@ On the bottom left of each code block, there's a selector for you to pick the co
 
 * 🧲 Parser will beautify code blocks according to your languages preference.
 
+* 🔓 Auto detect what languages that the website defines
+
 * 🎁 Supporting [Medium](https://medium.com/), [StackOverflow](https://stackoverflow.com/), [MDN](https://developer.mozilla.org/en-US/),
 [简书](https://www.jianshu.com/), [知乎](https://www.zhihu.com/), [W3C Plus](https://www.w3cplus.com/).
 
@@ -86,3 +88,5 @@ setting highlight languages preference can let it detect correctly.
 ### v1.3
 
 * Add background color of theme to inline style of `<code/>` to adapt most websites.
+
+* Add auto detection for those websites that have already defined what languages should be highlighted.
