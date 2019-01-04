@@ -45,6 +45,7 @@ class Parser {
     initThemeCSS() {
         this.linkEl = document.createElement('link')
         this.linkEl.setAttribute('rel', 'stylesheet')
+        this.linkEl.setAttribute('data-highlight', true)
 
         // Set default theme
         this.switchTheme(this.themeName)
@@ -148,6 +149,13 @@ class Parser {
                 this.preEls[i].appendChild(this.preElsCache[i])
             }
         }
+
+        this.removeLinkEl()
+    }
+
+    removeLinkEl() {
+        this.linkEl.remove()
+        this.linkEl = null
     }
 
     // Parse the whole page
