@@ -53,6 +53,9 @@ class Parser {
     getDefaultLangsPrefer() {
         chrome.storage.sync.get(['langsPrefer'], (result) => {
             this.langsPrefer = result.langsPrefer ? result.langsPrefer : this.langsPrefer
+
+            // Sort
+            this.sortLangsPrefer()
             console.log('Langs preference is ' + this.langsPrefer.map((langPrefer) => langPrefer.value));
 
             // Register language preference to hljs
@@ -137,6 +140,12 @@ class Parser {
                 // Each time get a new Code Block
                 return new CodeBlock(preEl, this.langsPrefer, properties)
             })
+        })
+    }
+
+    sortLangsPrefer() {
+        this.langsPrefer.sort((langA, langB) => {
+            return langB.value.length - langA.value.length
         })
     }
 }

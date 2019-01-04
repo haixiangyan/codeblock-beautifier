@@ -36,6 +36,8 @@ class LangsSwitch {
                     return langPrefer.value !== checkingEl.value
                 })
             }
+
+            this.sortLangsPrefer()
             this.setLangsPrefer()
             setTimeout(() => {
                 this.applayLangsPrefer()
@@ -88,6 +90,12 @@ class LangsSwitch {
             spanEl.appendChild(labelEl)
 
             this.langsSwitch.appendChild(spanEl)
+        })
+    }
+
+    sortLangsPrefer() {
+        this.langsPrefer.sort((langA, langB) => {
+            return langB.value.length - langA.value.length
         })
     }
 }
