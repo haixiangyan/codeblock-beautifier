@@ -47,7 +47,6 @@ class Parser {
         chrome.storage.sync.get(['themeName'], (result) => {
             this.themeName = result.themeName || 'atom-one-dark'
             console.log('Theme currently is ' + this.themeName);
-            this.initThemeCSS()
         });
     }
 
