@@ -10,7 +10,7 @@ class ParseButton {
     }
 
     bindEvent() {
-        this.parseButtonEl.addEventListener('click', () => {
+        this.parseButtonEl.addEventListener('click', (event) => {
             // Send msg to parse Medium article
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 chrome.tabs.sendMessage(
