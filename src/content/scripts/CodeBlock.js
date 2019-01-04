@@ -1,7 +1,7 @@
 class CodeBlock {
     constructor(preEl, langsPrefer, properties) {
         this.preEl = preEl
-        this.codeEl = this.preEl.querySelector('code')
+        this.codeEl = this.preEl.querySelector('code') || document.createElement('code')
         this.langsPrefer = langsPrefer
         this.properties = properties
         // Detect possible language
