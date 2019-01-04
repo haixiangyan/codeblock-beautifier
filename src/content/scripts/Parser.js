@@ -3,6 +3,8 @@ class Parser {
         this.langsPrefer = langs
         this.themeManager = new ThemeManager()
 
+        this.isAutoParse = false
+
         this.linkEl = null
         this.codeBlocks = []
         this.preEls = Array.from(document.querySelectorAll('pre'))
@@ -27,6 +29,9 @@ class Parser {
         this.getDefaultLangsPrefer()
 
         this.bindEvent()
+
+        // Get default auto parse
+        this.getDefaultAutoParse()
     }
 
     cachePreElsContent() {
@@ -57,6 +62,15 @@ class Parser {
         // Mixin relative <pre/> elements
         let miner = new Mixiner()
         miner.elsMixin(this.preEls)
+    }
+
+    getDefaultAutoParse() {
+        chrome.storage.sync.get(['isAutoParse'], (result) => {
+            this.isAutoParse = result.isAutoParse || false
+            if (this.isAutoParse) {
+                this.parse()
+            }
+        });
     }
 
     getDefaultThemeName() {
