@@ -33,15 +33,17 @@ On the bottom left of each code block, there's a selector for you to pick the co
 
 ## Features
 
-* ⚒Beautify any code blocks wrapping in `<pre/>` automatically.
+* ⚒ Beautify any code blocks wrapping in `<pre/>` automatically. 
+Supporting [Medium](https://medium.com/), [StackOverflow](https://stackoverflow.com/), [MDN](https://developer.mozilla.org/en-US/),
+[简书](https://www.jianshu.com/), [知乎](https://www.zhihu.com/), [W3C Plus](https://www.w3cplus.com/).
 
-* 🔌Can change to adapt any language highlight solutions manually.
+* 🔌 Can switch to any language highlight solutions.
 
-* 🔬Can switch any themes you like.
+* 🔬 Can switch to any highlight themes you like.
 
-* 🎉More than 80 themes are available.
+* 🎉 More than 80 themes are available.
 
-* 🎊More than 20 languages are available.
+* 🎊 More than 20 language highlight themes are available.
 
 ## Purpose
 The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
@@ -81,3 +83,7 @@ There may have some problems that I haven't found for this extension yet. If you
 setting highlight languages preference can let it detect correctly.
 
 * Add revert action. User can revert parsed code blocks to original styles.
+
+### v1.3
+
+* Add background color of theme to inline style of `<code/>` to adapt most websites.

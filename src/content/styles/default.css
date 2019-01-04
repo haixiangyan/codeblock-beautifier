@@ -18,3 +18,7 @@ pre[data-highlight], code[data-highlight] {
     line-height: 1.4 !important;
     white-space: pre-wrap !important;
 }
+
+pre[data-highlight] select {
+    color: black !important;
+}
