@@ -56,9 +56,7 @@ class Parser {
             console.log('Langs preference is ' + this.langsPrefer.map((langPrefer) => langPrefer.value));
 
             // Register language preference to hljs
-            hljs.configure({
-                languages: this.langsPrefer.map((langPrefer) => langPrefer.value)
-            })
+            this.setAutoDetectLangs()
         });
     }
 
@@ -73,6 +71,8 @@ class Parser {
         this.langsPrefer = langsPrefer
         chrome.storage.sync.set({langsPrefer: this.langsPrefer}, () => {
             console.log('Langs preference is set to ' + this.langsPrefer.map(((langPrefer) => langPrefer.value)));
+            // Register language preference to hljs
+            this.setAutoDetectLangs()
         });
     }
 
@@ -109,6 +109,13 @@ class Parser {
                     break
             }
         });
+    }
+
+    // Register language preference to hljs
+    setAutoDetectLangs() {
+        hljs.configure({
+            languages: this.langsPrefer.map((langPrefer) => langPrefer.value)
+        })
     }
 
     // Revert to original styles

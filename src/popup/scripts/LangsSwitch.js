@@ -37,6 +37,9 @@ class LangsSwitch {
                 })
             }
             this.setLangsPrefer()
+            setTimeout(() => {
+                this.applayLangsPrefer()
+            }, 100)
         })
     }
 
@@ -54,6 +57,12 @@ class LangsSwitch {
                 tabs[0].id,
                 {eventName: 'switchLangsPrefer', langsPrefer: this.langsPrefer});
         });
+    }
+
+    // Apply language preference to this page
+    applayLangsPrefer() {
+        document.querySelector('#revertBtn').click()
+        document.querySelector('#parseBtn').click()
     }
 
     generateCheckboxes() {
