@@ -22,7 +22,7 @@ or
 ### Switch theme
 Left click the extension, then it will popup a panel. Select any themes you love, and it will switch to that theme immediately.
 
-![Switch Theme](screenshot/themePanel.png)
+![Switch Theme](screenshot/themeSelector.png)
 
 ### Switch languages
 Because Medium.com doesn't allow us to specify what languages for code blocks, highlight.js may detect a wrong language.
@@ -30,7 +30,7 @@ You may need to select the correct language manually.
 
 On the bottom left of each code block, there's a selector for you to pick the correct language.
 
-![Languages Selector](screenshot/langSelector.png)
+![Languages Selector](screenshot/langsSelector.png)
 
 ### Switch language preference
 If you read articles are all about Front-end Development, you can only select JavaScript, HTML and CSS as your preference.
@@ -63,11 +63,11 @@ If you still like Medium style, you can click revert button to go back to origin
 The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
 Well, I know there are several ways to embed codes in it, but some people (like me) don't wanna create a gist or code sandbox project to put codes on my block. So most of time, I see this 🙄:
 
-![No highlight](screenshot/medium.png)
+![No highlight](screenshot/notHighlight.png)
 
 What I expect should be like this 😄:
 
-![Highlight](screenshot/jianshu.png)
+![Highlight](screenshot/highlight.png)
 
 So I build an extension to beautify code blocks in [Medium](www.medium.com).
 
