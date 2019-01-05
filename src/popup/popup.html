@@ -14,29 +14,31 @@
 <div class="container">
     <section class="hljs themes">
         <p class="hljs-comment">// Select any themes you like</p>
-        <span class="hljs-keyword">import</span>
-        Theme
-        <span class="hljs-keyword">from</span>
+        <span class="hljs-name">CodeBlockBeautifier</span>.<span>theme</span>
+        =
         <span class="hljs-string">"</span>
-        <select class="hljs-string hljs" name="themesSwitch" id="themesSwitch"></select>
+        <select class="hljs hljs-string" name="themesSwitch" id="themesSwitch"></select>
         <span class="hljs-string">"</span>
     </section>
 
     <section class="hljs langs">
         <p class="hljs-comment">// Language preferences may improve auto detection accuracy</p>
-        <span class="hljs-keyword">import</span>
-        Languages
-        <span class="hljs-keyword">from</span>
+        <span class="hljs-name">CodeBlockBeautifier</span>.<span>languages</span>
+        =
         [
         <div id="langsSwitch"></div>
         ]
     </section>
 
-    <section class="auto-parse">
-        <h2>Auto Parse</h2>
+    <section class="hljs auto-parse">
+        <p class="hljs-comment">// Highlight article automatically</p>
         <div>
-            <label for="autoParseCheckBox">Auto Parse</label>
-            <input id="autoParseCheckBox" type="checkbox" name="auto-parse">
+            <span class="hljs-name">CodeBlockBeautifier</span>.<span>isAutoParse</span>
+            =
+            <select class="hljs hljs-keyword" name="auto-parse" id="autoParseSwitch">
+                <option class="hljs-keyword" value="true">true</option>
+                <option class="hljs-keyword" value="false">false</option>
+            </select>
         </div>
     </section>
 
@@ -52,7 +54,7 @@
 <script src="scripts/LangsSwitch.js"></script>
 <script src="scripts/ParseButton.js"></script>
 <script src="scripts/RevertButton.js"></script>
-<script src="scripts/AutoParseCheckBox.js"></script>
+<script src="scripts/AutoParseSwitch.js"></script>
 <script src="scripts/popup.js"></script>
 </body>
 </html>

@@ -1,12 +1,11 @@
 /*Default width*/
 body {
-    width: 450px;
+    width: 410px;
 }
 
 /*Container styles*/
 .container {
     font-size: 1.1em;
-    padding: 20px;
     margin: 0 auto;
 }
 
@@ -47,6 +46,12 @@ section.theme select {
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+/*Auto parse section*/
+#autoParseSwitch {
+    display: inline-block;
+    padding: 0;
 }
 
 /*Action button styles*/
