@@ -23,8 +23,8 @@ section.theme select {
 
 /*Language preference section*/
 #langsSwitch {
-    width: 90%;
-    margin: 0 auto;
+    width: 85%;
+    margin: 2px auto 0;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -36,12 +36,17 @@ section.theme select {
     margin: 2px;
     white-space: nowrap;
     background: transparent;
+    cursor: pointer;
+    transition: transform .3s;
 }
-
+#langsSwitch > .lang-wrapper:hover {
+    transform: scale(1.2);
+}
 #langsSwitch > .lang-wrapper > label {
     margin-left: 4px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 /*Action button styles*/
