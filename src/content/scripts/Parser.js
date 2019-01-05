@@ -14,13 +14,14 @@ class Parser {
         this.codeBlocks = []
         // Cache each element innerHTML for reverting
         this.preElsCache = []
-        // Pre-process <pre/> elements
-        this.preprocess()
 
         this.init()
     }
 
     init() {
+        // Pre-process <pre/> elements
+        this.preprocess()
+
         // Cache for revert
         this.cachePreElsContent()
 
@@ -163,7 +164,7 @@ class Parser {
             }
             else {
                 this.preEls[i].innerHTML = ''
-                this.preEls[i].appendChild(this.preElsCache[i])
+                this.preEls[i].appendChild(this.preElsCache[i].cloneNode(true))
             }
         }
 
