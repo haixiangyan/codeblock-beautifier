@@ -1,5 +1,5 @@
 const langs = [
-    {value: 'apache', text: 'apache'},
+    {value: 'apache', text: 'Apache'},
     {value: 'bash', text: 'Bash'},
     {value: 'cs', text: 'C#'},
     {value: 'cpp', text: 'C++'},

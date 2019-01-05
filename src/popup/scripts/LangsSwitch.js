@@ -4,44 +4,46 @@ class LangsSwitch {
         this.themeManager = themeManager
         this.langsPrefer = langs
         this.langsSwitch = document.querySelector('#langsSwitch')
+        this.computedStyles = {}
 
         this.init()
     }
 
     init() {
-        this.getDefaultLangsPrefer()
+        this.themeManager.getStylesByClassName('hljs-variable', (computedStyles) => {
+            // Get computed styles of class 'hljs-variable'
+            this.computedStyles = computedStyles
 
-        // Bind switching language preference event
-        this.bindEvent()
+            // Get default language preference
+            this.getDefaultLangsPrefer()
+        })
     }
 
-    bindEvent() {
+    bindCheckEvent(spanEl, lang) {
         // Use event hosting to listen to check event
-        this.langsSwitch.addEventListener('click', (event) => {
-            let checkingEl = event.target
-            if (checkingEl.getAttribute('type') !== 'checkbox') {
-                return
-            }
-            let labelEl = checkingEl.parentElement.querySelector('label')
+        spanEl.addEventListener('click', (event) => {
+            let fakeCheckbox = event.currentTarget.querySelector('.fake-checkbox')
+            console.log(fakeCheckbox);
 
-            if (checkingEl.checked) {
-                // Add this language
-                this.langsPrefer.push({
-                    value: checkingEl.value,
-                    text: labelEl.innerText
+            // If it is checked
+            if (fakeCheckbox.className.indexOf('is-check') > -1) {
+                // Remove this language
+                this.langsPrefer = this.langsPrefer.filter((langPrefer) => {
+                    return langPrefer.value !== lang.value
                 })
             }
             else {
-                // Remove this language
-                this.langsPrefer = this.langsPrefer.filter((langPrefer) => {
-                    return langPrefer.value !== checkingEl.value
-                })
+                // Add this language
+                this.langsPrefer.push(lang)
             }
+            // Toggle class
+            fakeCheckbox.classList.toggle('is-check')
 
             this.sortLangsPrefer()
             this.setLangsPrefer()
+            // Wait for setting new language preference
             setTimeout(() => {
-                this.applayLangsPrefer()
+                this.applyLangsPrefer()
             }, 100)
         })
     }
@@ -63,7 +65,7 @@ class LangsSwitch {
     }
 
     // Apply language preference to this page
-    applayLangsPrefer() {
+    applyLangsPrefer() {
         document.querySelector('#revertBtn').click()
         document.querySelector('#parseBtn').click()
     }
@@ -71,27 +73,62 @@ class LangsSwitch {
     generateCheckboxes() {
         let langsPreferValue = this.langsPrefer.map((langPrefer) => langPrefer.value)
 
-        this.langs.forEach((lang) => {
-            let spanEl = document.createElement('span')
+        this.langs.forEach((lang, index) => {
+            let fakeCheckbox = this.generateCheckbox(lang, langsPreferValue)
 
-            let checkboxEl = document.createElement('input')
-            checkboxEl.setAttribute('id', lang.value)
-            checkboxEl.setAttribute('type', 'checkbox')
-            checkboxEl.setAttribute('name', 'langsPrefer')
-            checkboxEl.setAttribute('value', lang.value)
-            if (langsPreferValue.indexOf(lang.value) > -1) {
-                checkboxEl.setAttribute('checked', true)
-            }
+            let labelEl = this.generateLabel(lang)
 
-            let labelEl = document.createElement('label')
-            labelEl.setAttribute('for', lang.value)
-            labelEl.innerText = lang.text
-
-            spanEl.appendChild(checkboxEl)
-            spanEl.appendChild(labelEl)
+            let spanEl = this.generateLangWrapper(lang, index , fakeCheckbox, labelEl)
 
             this.langsSwitch.appendChild(spanEl)
         })
+    }
+
+    generateLangWrapper(lang, index, fakeCheckbox, labelEl) {
+        let spanEl = document.createElement('span')
+        spanEl.className = 'lang-wrapper'
+        spanEl.appendChild(fakeCheckbox)
+        spanEl.appendChild(labelEl)
+        if (index + 1 < this.langs.length) {
+            spanEl.appendChild(new Text(", "))
+        }
+
+        this.bindCheckEvent(spanEl, lang)
+
+        return spanEl
+    }
+
+    generateCheckbox(lang, langsPreferValue) {
+        let fakeCheckbox = document.createElement('span')
+        fakeCheckbox.setAttribute('data-value', lang.value)
+        fakeCheckbox.setAttribute('data-text', lang.text)
+        fakeCheckbox.classList.add('fake-checkbox')
+        fakeCheckbox.style.border = `1px solid ${this.computedStyles.color}`
+        if (langsPreferValue.indexOf(lang.value) > -1) {
+            fakeCheckbox.classList.add('is-check')
+            fakeCheckbox.setAttribute('data-check', true)
+        }
+
+        let solid = this.generateCheckboxSolid()
+        fakeCheckbox.appendChild(solid)
+
+        return fakeCheckbox
+    }
+
+    generateCheckboxSolid() {
+        let solid = document.createElement('span')
+        solid.style.backgroundColor = this.computedStyles.color
+
+        return solid
+    }
+
+    generateLabel(lang) {
+        let labelEl = document.createElement('label')
+        labelEl.setAttribute('for', lang.value)
+        labelEl.setAttribute('class', 'hljs-variable')
+        labelEl.innerText = lang.text
+
+        return labelEl
     }
 
     sortLangsPrefer() {

@@ -19,9 +19,9 @@ class ThemesSwitch {
     }
 
     initStyles() {
-        // this.themeManager.getHljsProperties((properties) => {
-        //     this.themesSwitchEl.style.border = ''
-        // })
+        this.themeManager.getStylesByClassName('hljs-string', (computedStyles) => {
+            this.themesSwitchEl.style.border = `1px solid ${computedStyles.color}`
+        })
     }
 
     bindEvent() {

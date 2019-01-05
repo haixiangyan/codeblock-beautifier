@@ -13,16 +13,30 @@
     color: white;
     cursor: pointer;
 }
-
 .primary-btn {
     background: #0E6397;
 }
-
 .danger-btn {
     background: #D61425;
 }
 
-/*Select styles*/
-select {
-    padding: 0;
+/*Fake checkbox*/
+.fake-checkbox {
+    display: inline-flex;
+    padding: 1px;
+    height: 13px;
+    width: 13px;
+    border: 1px solid yellow;
+    border-radius: 2px;
+}
+.fake-checkbox span {
+    height: 0;
+    width: 0;
+    border-radius: 2px;
+    transition: all .3s;
+}
+.fake-checkbox.is-check span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
