@@ -1,9 +1,9 @@
 class CodeBlock {
-    constructor(preEl, langsPrefer, properties) {
+    constructor(preEl, langsPrefer, computedStyles) {
         this.preEl = preEl
         this.codeEl = this.preEl.querySelector('code') || document.createElement('code')
         this.langsPrefer = langsPrefer
-        this.properties = properties
+        this.computedStyles = computedStyles
         // Detect possible language
         this.detectedLang = this.detectLang()
         this.selectionPanel = null
@@ -31,7 +31,7 @@ class CodeBlock {
 
     generateCodeEl() {
         this.codeEl.setAttribute('data-highlight', true)
-        this.codeEl.style.backgroundColor = this.properties.backgroundColor
+        this.codeEl.style.backgroundColor = this.computedStyles.backgroundColor
         this.codeEl.className = this.detectedLang
         this.codeEl.innerText = this.preEl.innerText
     }

@@ -1,16 +1,27 @@
 class ThemesSwitch {
-    constructor(themes) {
+    constructor(themes, themeManager) {
         this.themes = themes
+        this.themeManager = themeManager
         this.themesSwitchEl = document.querySelector('#themesSwitch')
 
         this.init()
     }
 
     init() {
+        // Init <select/> styles
+        this.initStyles()
+
+        // Get default theme name
         this.getDefaultThemeName()
 
         // Bind switching theme event
         this.bindEvent()
+    }
+
+    initStyles() {
+        // this.themeManager.getHljsProperties((properties) => {
+        //     this.themesSwitchEl.style.border = ''
+        // })
     }
 
     bindEvent() {

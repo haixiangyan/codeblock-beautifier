@@ -118,9 +118,9 @@ class Parser {
         this.linkEl && this.linkEl.setAttribute('href', href)
 
         // Switch to corresponding theme properties
-        this.themeManager.getProperties((properties) => {
+        this.themeManager.getStylesByClassName('hljs', (computedStyles) => {
             this.codeBlocks.forEach((codeBlock) => {
-                codeBlock.codeEl.style.backgroundColor = properties.backgroundColor
+                codeBlock.codeEl.style.backgroundColor = computedStyles.backgroundColor
             })
         })
     }
@@ -181,11 +181,11 @@ class Parser {
         if (!this.linkEl) {
             this.initThemeCSS()
         }
-        // test
-        this.themeManager.getProperties((properties) => {
+        // Get .hljs computed styles
+        this.themeManager.getStylesByClassName('hljs', (computedStyles) => {
             this.codeBlocks = this.preEls.map((preEl) => {
                 // Each time get a new Code Block
-                return new CodeBlock(preEl, this.langsPrefer, properties)
+                return new CodeBlock(preEl, this.langsPrefer, computedStyles)
             })
         })
     }

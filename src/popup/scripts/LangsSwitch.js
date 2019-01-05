@@ -1,6 +1,7 @@
 class LangsSwitch {
-    constructor(langs) {
+    constructor(langs, themeManager) {
         this.langs = langs
+        this.themeManager = themeManager
         this.langsPrefer = langs
         this.langsSwitch = document.querySelector('#langsSwitch')
 

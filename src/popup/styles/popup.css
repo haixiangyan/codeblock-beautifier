@@ -1,46 +1,26 @@
+/*Default width*/
+body {
+    width: 450px;
+}
+
+/*Container styles*/
 .container {
-    width: 250px;
+    font-size: 1.1em;
+    padding: 20px;
+    margin: 0 auto;
 }
 
-.container form {
-    width: 90%;
-    padding-bottom: 20px;
-    border-bottom: 1px solid black;
+/*Section*/
+
+/*Theme section*/
+section.theme select {
+    display: inline-block;
 }
 
-.container form:last-child {
-    margin-bottom: 20px;
-}
-
-.container, .container form {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container .langs-form div {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.container .langs-form span {
-    margin: 4px;
-    display: flex;
-    align-items: center;
-}
-
-.auto-parse-form div {
-    display: flex;
-    align-items: center;
-}
-
+/*Action button styles*/
 .btn-group {
-    padding-top: 20px;
 }
 
-.footer {
-    color: #ddd;
-    margin-top: 10px;
-    text-align: center;
+#parseBtn {
+    margin-bottom: 6px;
 }

@@ -5,39 +5,41 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/default.css">
     <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="../lib/highlight/styles/atom-one-dark.css">
     <title>popup</title>
 </head>
 <body>
 <div class="container">
-    <form class="themes-form">
-        <h2>Select Your Theme</h2>
-        <select name="themesSwitch" id="themesSwitch"></select>
-    </form>
+    <section class="hljs javascript themes">
+        <span class="hljs-keyword">import</span>
+        Theme
+        <span class="hljs-keyword">from</span>
+        <select class="hljs-string hljs" name="themesSwitch" id="themesSwitch"></select>
+    </section>
 
-    <form class="langs-form">
+    <section class="langs">
         <h2>Language Preference</h2>
         <div id="langsSwitch"></div>
-    </form>
+    </section>
 
-    <form class="auto-parse-form">
+    <section class="auto-parse">
         <h2>Auto Parse</h2>
         <div>
             <label for="autoParseCheckBox">Auto Parse</label>
             <input id="autoParseCheckBox" type="checkbox" name="auto-parse">
         </div>
-    </form>
+    </section>
 
     <div class="btn-group">
-        <button id="parseBtn">Parse</button>
-        <button id="revertBtn">Revert</button>
+        <button class="primary-btn btn" id="parseBtn">Parse</button>
+        <button class="danger-btn btn" id="revertBtn">Revert</button>
     </div>
 </div>
-<footer class="footer">
-    Made By Haixiang Yan &copy; 2019
-</footer>
 <script src="../db/themes.js"></script>
 <script src="../db/langs.js"></script>
+<script src="../common/ThemeManager.js"></script>
 <script src="scripts/ThemesSwitch.js"></script>
 <script src="scripts/LangsSwitch.js"></script>
 <script src="scripts/ParseButton.js"></script>
