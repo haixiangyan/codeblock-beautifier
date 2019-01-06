@@ -40,3 +40,19 @@
     height: 100%;
     width: 100%;
 }
+
+/*Statement styles*/
+.statement {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.tab {
+    padding-left: 20px;
+}
+
+/*Multi comment styles*/
+.multi-comment {
+    padding-left: 4px;
+}

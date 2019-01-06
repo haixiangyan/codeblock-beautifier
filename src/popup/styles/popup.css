@@ -67,8 +67,15 @@ section.theme select {
 }
 
 /*Action button styles*/
-#parseBtn {
-    margin-bottom: 6px;
+#parseBtn, #revertBtn {
+    padding: 2px;
+    background: transparent;
+    border-radius: 4px;
+    transition: transform .3s;
+    cursor: pointer;
+}
+#parseBtn:hover, #revertBtn:hover {
+    transform: scale(1.1);
 }
 
 @keyframes breathe {

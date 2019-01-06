@@ -8,6 +8,7 @@ class ThemeManager {
         this.tempWrapper.appendChild(this.buildTempElement('span', 'hljs-string'))
         this.tempWrapper.appendChild(this.buildTempElement('span', 'hljs-comment'))
         this.tempWrapper.appendChild(this.buildTempElement('span', 'hljs-variable'))
+        this.tempWrapper.appendChild(this.buildTempElement('span', 'hljs-meta'))
 
         document.body.appendChild(this.tempWrapper)
     }
