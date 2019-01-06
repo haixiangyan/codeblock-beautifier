@@ -51,10 +51,6 @@ header .file-tag:hover .cancel-icon {
     padding: 0;
     cursor: pointer;
     border-radius: 4px;
-    transition: transform .3s;
-}
-#themesSwitch:hover {
-    transform: scale(1.2)
 }
 
 /*Theme section*/
@@ -78,7 +74,7 @@ section.theme select {
     white-space: nowrap;
     background: transparent;
     cursor: pointer;
-    transition: transform .3s;
+    transition: transform 1s;
 }
 #langsSwitch > .lang-wrapper:hover {
     transform: scale(1.2);
@@ -96,10 +92,6 @@ section.theme select {
     padding: 0;
     border-radius: 4px;
     cursor: pointer;
-    transition: transform .3s;
-}
-#autoParseSwitch:hover {
-    transform: scale(1.2);
 }
 
 /*Action button styles*/
@@ -107,10 +99,22 @@ section.theme select {
     padding: 2px;
     background: transparent;
     border-radius: 4px;
-    transition: transform .3s;
     cursor: pointer;
 }
-#parseBtn:hover, #revertBtn:hover {
+
+/*Animation*/
+#themesSwitch,
+#langsSwitch > .lang-wrapper,
+#autoParseSwitch,
+#parseBtn,
+#revertBtn {
+    transition: transform .5s;
+}
+#themesSwitch:hover,
+#langsSwitch > .lang-wrapper:hover,
+#autoParseSwitch:hover,
+#parseBtn:hover,
+#revertBtn:hover {
     transform: scale(1.2);
 }
 
@@ -118,10 +122,22 @@ section.theme select {
     0% {
         transform: scale(1);
     }
-    50% {
-        transform: scale(0.8);
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(1deg)
+    }
+    75% {
+        transform: rotate(-1deg)
     }
     100% {
-        transform: scale(1);
+        transform: rotate(0deg)
     }
 }
