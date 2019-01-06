@@ -3,10 +3,10 @@ body {
     width: 400px;
 }
 
-/*Container styles*/
-.container {
+/*Main*/
+body > main.hljs {
+    padding: 15px;
     font-size: 1.1em;
-    margin: 0 auto;
 }
 
 /*Header*/
@@ -21,6 +21,7 @@ header .file-tag {
     background: #1C2022;
     color: white;
     cursor: pointer;
+    border-bottom: 1px solid #40A9F3;
 }
 header .file-tag .file-icon, header .file-tag .cancel-icon {
     width: 16px;
@@ -42,11 +43,6 @@ header .file-tag .cancel-icon {
 }
 header .file-tag:hover .cancel-icon {
     opacity: 1;
-}
-
-/*Main*/
-body .container > main {
-    padding: 15px;
 }
 
 /*Theme switch*/
