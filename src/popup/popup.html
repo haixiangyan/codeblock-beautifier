@@ -26,28 +26,33 @@
 <main class="hljs">
     <section class="author">
         <p class="statement">
-            <span class="hljs-comment">/**</span>
+            <span class="line-number">1</span><span class="hljs-comment">/**</span>
         </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">* <strong>@Author</strong> Haixiang Yan</span>
+        <p class="statement">
+            <span class="line-number">2</span><span class="hljs-comment multi-comment">* <strong>@Author</strong> Haixiang Yan</span>
         </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">* <strong>@Create</strong> 01/01/2019</span>
+        <p class="statement">
+            <span class="line-number">3</span><span class="hljs-comment multi-comment">* <strong>@Create</strong> 01/01/2019</span>
         </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">*/</span>
+        <p class="statement">
+            <span class="line-number">4</span><span class="hljs-comment multi-comment">*/</span>
         </p>
     </section>
 
     <section class="import">
-        <span class="hljs-keyword">import</span>
+        <span class="line-number">5</span><span class="hljs-keyword">import</span>
         Beautifier
         <span class="hljs-keyword">from</span>
         <span class="hljs-string">"CodeBlockBeautifier"</span>
     </section>
 
     <section class="themes">
-        <p class="hljs-comment">// Select any themes you like</p>
+        <span class="line-number">6</span>
+        <p>
+            <span class="line-number">7</span>
+            <span class="hljs-comment">// Select any themes you like</span>
+        </p>
+        <span class="line-number">8</span>
         <span class="hljs-name">Beautifier</span>.<span>theme</span>
         =
         <span class="hljs-string">"</span>
@@ -56,17 +61,26 @@
     </section>
 
     <section class="langs">
-        <p class="hljs-comment">// Language preferences may improve auto detection accuracy</p>
+        <p>
+            <span class="line-number">9</span>
+            <span class="hljs-comment">// Select your language preference</span>
+        </p>
+        <span class="line-number">10</span>
         <span class="hljs-name">Beautifier</span>.<span>languages</span>
         =
         [
         <div id="langsSwitch"></div>
+        <span class="line-number">11</span>
         ]
     </section>
 
     <section class="auto-parse">
-        <p class="hljs-comment">// Highlight article automatically</p>
+        <p>
+            <span class="line-number">12</span>
+            <span class="hljs-comment">// Highlight article automatically</span>
+        </p>
         <div>
+            <span class="line-number">13</span>
             <span class="hljs-name">Beautifier</span>.<span>isAutoParse</span>
             =
             <select class="hljs hljs-keyword" name="auto-parse" id="autoParseSwitch">
@@ -77,17 +91,22 @@
     </section>
 
     <section class="btn-group">
+        <span class="line-number">14</span>
         <span class="hljs-keyword">if</span> (You wanna parse) {
-        <p class="statement tab">
-            <span class="hljs-variable">Beautifier</span>.
+        <p class="statement">
+            <span class="line-number">15</span>
+            <span class="tab hljs-variable">Beautifier</span>.
             <button class="hljs-keyword" id="parseBtn">parse()</button>
         </p>
+        <span class="line-number">17</span>
         }
-        <span class="hljs-keyword">else {</span>
-        <p class="statement tab">
-            <span class="hljs-variable">Beautifier</span>.
+        <span class="hljs-keyword">else</span> {
+        <p class="statement">
+            <span class="line-number">18</span>
+            <span class="tab hljs-variable">Beautifier</span>.
             <button class="hljs-keyword" id="revertBtn">revert()</button>
         </p>
+        <span class="line-number">19</span>
         }
     </section>
 </main>

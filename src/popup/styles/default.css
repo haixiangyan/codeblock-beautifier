@@ -56,3 +56,13 @@
 .multi-comment {
     padding-left: 4px;
 }
+
+/*Line number styles*/
+.line-number {
+    display: inline-block;
+    padding-right: 5px;
+    width: 20px;
+    color: #858585;;
+    text-align: right;
+    border-right: 1px solid #404040;
+}
