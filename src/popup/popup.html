@@ -7,80 +7,97 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/default.css">
     <link rel="stylesheet" href="styles/popup.css">
-    <link id="themeLink" rel="stylesheet" href="../lib/highlight/styles/vs2015.css">
+    <link id="themeLink" rel="stylesheet" href="../lib/highlight/styles/atom-one-dark.css">
     <title>popup</title>
 </head>
 <body>
 <div class="container">
-    <section class="hljs author">
-        <p class="statement">
-            <span class="hljs-comment">/**</span>
-        </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">* <strong>@Author</strong> Haixiang Yan</span>
-        </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">* <strong>@Create</strong> 01/01/2019</span>
-        </p>
-        <p class="statement multi-comment">
-            <span class="hljs-comment">*/</span>
-        </p>
-    </section>
-
-    <section class="hljs import">
-        <span class="hljs-keyword">import</span>
-        Beautifier
-        <span class="hljs-keyword">from</span>
-        <span class="hljs-string">"CodeBlockBeautifier"</span>
-    </section>
-
-    <section class="hljs themes">
-        <p class="hljs-comment">// Select any themes you like</p>
-        <span class="hljs-name">Beautifier</span>.<span>theme</span>
-        =
-        <span class="hljs-string">"</span>
-        <select class="hljs hljs-string" name="themesSwitch" id="themesSwitch"></select>
-        <span class="hljs-string">"</span>
-    </section>
-
-    <section class="hljs langs">
-        <p class="hljs-comment">// Language preferences may improve auto detection accuracy</p>
-        <span class="hljs-name">Beautifier</span>.<span>languages</span>
-        =
-        [
-        <div id="langsSwitch"></div>
-        ]
-    </section>
-
-    <section class="hljs auto-parse">
-        <p class="hljs-comment">// Highlight article automatically</p>
-        <div>
-            <span class="hljs-name">Beautifier</span>.<span>isAutoParse</span>
-            =
-            <select class="hljs hljs-keyword" name="auto-parse" id="autoParseSwitch">
-                <option class="hljs-keyword" value="true">true</option>
-                <option class="hljs-keyword" value="false">false</option>
-            </select>
+    <header>
+        <div class="file-tag">
+            <span class="file-icon">
+                <img width="16" height="16" src="images/js.png" alt="js-icon">
+            </span>
+            <span class="file-name">Settings.js</span>
+            <span class="cancel-icon">
+                <img width="16" height="16" src="images/cancel.png" alt="cancel-icon">
+            </span>
         </div>
-    </section>
+    </header>
 
-    <section class="hljs btn-group">
-        <span class="hljs-keyword">if</span> (You wanna parse) {
-        <p class="statement tab">
-            <span class="hljs-variable">Beautifier</span>.<button class="hljs-keyword" id="parseBtn">parse()</button>
-        </p>
-        }
-        <span class="hljs-keyword">else {</span>
-        <p class="statement tab">
-            <span class="hljs-variable">Beautifier</span>.<button class="hljs-keyword" id="revertBtn">revert()</button>
-        </p>
-        }
-    </section>
+    <main class="hljs">
+        <section class="author">
+            <p class="statement">
+                <span class="hljs-comment">/**</span>
+            </p>
+            <p class="statement multi-comment">
+                <span class="hljs-comment">* <strong>@Author</strong> Haixiang Yan</span>
+            </p>
+            <p class="statement multi-comment">
+                <span class="hljs-comment">* <strong>@Create</strong> 01/01/2019</span>
+            </p>
+            <p class="statement multi-comment">
+                <span class="hljs-comment">*/</span>
+            </p>
+        </section>
+
+        <section class="import">
+            <span class="hljs-keyword">import</span>
+            Beautifier
+            <span class="hljs-keyword">from</span>
+            <span class="hljs-string">"CodeBlockBeautifier"</span>
+        </section>
+
+        <section class="themes">
+            <p class="hljs-comment">// Select any themes you like</p>
+            <span class="hljs-name">Beautifier</span>.<span>theme</span>
+            =
+            <span class="hljs-string">"</span>
+            <select class="hljs hljs-string" name="themesSwitch" id="themesSwitch"></select>
+            <span class="hljs-string">"</span>
+        </section>
+
+        <section class="langs">
+            <p class="hljs-comment">// Language preferences may improve auto detection accuracy</p>
+            <span class="hljs-name">Beautifier</span>.<span>languages</span>
+            =
+            [
+            <div id="langsSwitch"></div>
+            ]
+        </section>
+
+        <section class="auto-parse">
+            <p class="hljs-comment">// Highlight article automatically</p>
+            <div>
+                <span class="hljs-name">Beautifier</span>.<span>isAutoParse</span>
+                =
+                <select class="hljs hljs-keyword" name="auto-parse" id="autoParseSwitch">
+                    <option class="hljs-keyword" value="true">true</option>
+                    <option class="hljs-keyword" value="false">false</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="btn-group">
+            <span class="hljs-keyword">if</span> (You wanna parse) {
+            <p class="statement tab">
+                <span class="hljs-variable">Beautifier</span>.<button class="hljs-keyword" id="parseBtn">parse()</button>
+            </p>
+            }
+            <span class="hljs-keyword">else {</span>
+            <p class="statement tab">
+                <span class="hljs-variable">Beautifier</span>.<button class="hljs-keyword" id="revertBtn">revert()</button>
+            </p>
+            }
+        </section>
+    </main>
 </div>
+<!--DB-->
 <script src="../db/themes.js"></script>
 <script src="../db/langs.js"></script>
+<!--Common-->
 <script src="../common/ThemeManager.js"></script>
 <script src="../common/EventHub.js"></script>
+<!--Popup-->
 <script src="scripts/ThemesSwitch.js"></script>
 <script src="scripts/LangsSwitch.js"></script>
 <script src="scripts/ParseButton.js"></script>

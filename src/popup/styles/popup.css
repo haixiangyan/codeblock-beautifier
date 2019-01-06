@@ -1,12 +1,52 @@
 /*Default width*/
 body {
-    width: 410px;
+    width: 400px;
 }
 
 /*Container styles*/
 .container {
     font-size: 1.1em;
     margin: 0 auto;
+}
+
+/*Header*/
+header {
+    background: #141618;
+}
+
+header .file-tag {
+    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    background: #1C2022;
+    color: white;
+    cursor: pointer;
+}
+header .file-tag .file-icon, header .file-tag .cancel-icon {
+    width: 16px;
+    height: 16px;
+}
+header .file-tag img {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+header .file-tag .file-name{
+    margin-right: 16px;
+    margin-left: 4px;
+    font-size: 1em;
+}
+header .file-tag .cancel-icon {
+    opacity: 0;
+    transition: opacity .3s;
+}
+header .file-tag:hover .cancel-icon {
+    opacity: 1;
+}
+
+/*Main*/
+body .container > main {
+    padding: 15px;
 }
 
 /*Theme switch*/

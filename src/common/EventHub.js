@@ -9,7 +9,6 @@ class EventHub {
         }
 
         this.callbacks[eventName].push(callback)
-        console.log(this.callbacks);
     }
 
     trigger(eventName, data) {
