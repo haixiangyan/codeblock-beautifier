@@ -6,18 +6,9 @@ class ParseButton {
     }
 
     init() {
-        this.setBtnStyles()
-
         this.listenToBtn()
-
-        this.listenToTheme()
     }
 
-    setBtnStyles() {
-        themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
-            this.parseButtonEl.style.border = `1px solid ${computedStyles.color}`
-        })
-    }
 
     listenToBtn() {
         this.parseButtonEl.addEventListener('click', (event) => {
@@ -28,11 +19,5 @@ class ParseButton {
                     {eventName: 'parse'});
             });
         });
-    }
-
-    listenToTheme() {
-        eventHub.listen('themeChanged', () => {
-            this.setBtnStyles()
-        })
     }
 }

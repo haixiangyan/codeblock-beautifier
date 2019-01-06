@@ -6,17 +6,7 @@ class RevertButton {
     }
 
     init() {
-        this.setBtnStyles()
-
         this.listenToBtn()
-
-        this.listenToTheme()
-    }
-
-    setBtnStyles() {
-        themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
-            this.revertButtonEl.style.border = `1px solid ${computedStyles.color}`
-        })
     }
 
     listenToBtn() {
@@ -28,11 +18,5 @@ class RevertButton {
                     {eventName: 'revert'});
             });
         });
-    }
-
-    listenToTheme() {
-        eventHub.listen('themeChanged', () => {
-            this.setBtnStyles()
-        })
     }
 }

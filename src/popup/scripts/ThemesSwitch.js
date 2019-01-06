@@ -9,8 +9,8 @@ class ThemesSwitch {
     }
 
     init() {
-        // Init <select/> styles
-        this.setSwitchStyles()
+        // Get styles from hljs
+        themeManager.getHljsStyles()
 
         // Get default theme name
         this.getDefaultThemeName()
@@ -28,18 +28,12 @@ class ThemesSwitch {
         }
     }
 
-    setSwitchStyles() {
-        themeManager.getStylesByClassName('hljs-string', (computedStyles) => {
-            this.themesSwitchEl.style.border = `1px solid ${computedStyles.color}`
-            this.themesSwitchEl.style.color = `${computedStyles.color}`
-        })
-    }
-
     listenToTheme() {
         eventHub.listen('themeChanged', (themeName) => {
             this.setPopupTheme(themeName)
 
-            this.setSwitchStyles()
+            // Get styles from Hljs
+            themeManager.getHljsStyles()
         })
     }
 

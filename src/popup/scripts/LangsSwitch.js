@@ -5,16 +5,30 @@ class LangsSwitch {
         this.langsSwitch = document.querySelector('#langsSwitch')
         this.computedStyles = {}
 
+        this.solids = []
+
         this.init()
     }
 
     init() {
+        this.listenToTheme()
+
         themeManager.getStylesByClassName('hljs-variable', (computedStyles) => {
             // Get computed styles of class 'hljs-variable'
             this.computedStyles = computedStyles
 
             // Get default language preference
             this.getDefaultLangsPrefer()
+        })
+    }
+
+    listenToTheme() {
+        eventHub.listen('themeChanged', () => {
+            themeManager.getStylesByClassName('hljs-variable', (computedStyles) => {
+                this.solids.forEach((solid) => {
+                    solid.style.backgroundColor = computedStyles.color
+                })
+            })
         })
     }
 
@@ -101,8 +115,7 @@ class LangsSwitch {
         let fakeCheckbox = document.createElement('span')
         fakeCheckbox.setAttribute('data-value', lang.value)
         fakeCheckbox.setAttribute('data-text', lang.text)
-        fakeCheckbox.classList.add('fake-checkbox')
-        fakeCheckbox.style.border = `1px solid ${this.computedStyles.color}`
+        fakeCheckbox.classList.add('fake-checkbox', 'cover-hljs-variable')
         if (langsPreferValue.indexOf(lang.value) > -1) {
             fakeCheckbox.classList.add('is-check')
             fakeCheckbox.setAttribute('data-check', true)
@@ -117,6 +130,8 @@ class LangsSwitch {
     generateCheckboxSolid() {
         let solid = document.createElement('span')
         solid.style.backgroundColor = this.computedStyles.color
+
+        this.solids.push(solid)
 
         return solid
     }
