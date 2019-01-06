@@ -31,6 +31,7 @@ class AutoParseSwitch {
 
     setSwitchStyles() {
         themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
+            console.log(computedStyles.color)
             this.autoParseSwitch.style.border = `1px solid ${computedStyles.color}`
             this.autoParseSwitch.style.color = `${computedStyles.color}`
         })
