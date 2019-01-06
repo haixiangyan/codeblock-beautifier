@@ -60,9 +60,10 @@ class ThemesSwitch {
 
     getDefaultThemeName() {
         chrome.storage.sync.get(['themeName'], (result) => {
-            this.generateOptions(result.themeName)
+            let defaultThemeName = (result.themeName) ? result.themeName : 'atom-one-dark'
+            this.generateOptions(defaultThemeName)
 
-            this.setPopupTheme(result.themeName)
+            this.setPopupTheme(defaultThemeName)
         });
     }
 
