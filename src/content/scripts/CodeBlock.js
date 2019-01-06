@@ -13,11 +13,19 @@ class CodeBlock {
 
     init() {
         this.generateCodeEl()
+
         this.wrapCodeEl()
 
-        hljs.highlightBlock(this.codeEl)
+        this.autoHighlight()
 
         this.generatePanelEl()
+    }
+
+    autoHighlight() {
+        // Remove HTML tags within <code/> element
+        this.codeEl.innerText = this.codeEl.innerText
+
+        hljs.highlightBlock(this.codeEl)
     }
 
     generatePanelEl() {

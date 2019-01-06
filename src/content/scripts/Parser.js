@@ -114,7 +114,7 @@ class Parser {
         });
     }
 
-    setCodeBlockStyles() {
+    setCodeBlockBg() {
         // Switch to corresponding theme properties
         this.themeManager.getStylesByClassName('hljs', (computedStyles) => {
             this.codeBlocks.forEach((codeBlock) => {
@@ -128,7 +128,7 @@ class Parser {
         let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
         this.linkEl && this.linkEl.setAttribute('href', href)
 
-        this.setCodeBlockStyles()
+        this.setCodeBlockBg()
     }
 
     // Receive msg from popup.js
