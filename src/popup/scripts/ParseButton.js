@@ -1,24 +1,25 @@
 class ParseButton {
-    constructor(themeManager) {
-        this.themeManager = themeManager
+    constructor() {
         this.parseButtonEl = document.querySelector('#parseBtn')
 
         this.init()
     }
 
     init() {
-        this.initStyles()
+        this.setBtnStyles()
 
-        this.bindEvent()
+        this.listenToBtn()
+
+        this.listenToTheme()
     }
 
-    initStyles() {
-        this.themeManager.getStylesByClassName('hljs-meta', (computedStyles) => {
+    setBtnStyles() {
+        themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
             this.parseButtonEl.style.border = `1px solid ${computedStyles.color}`
         })
     }
 
-    bindEvent() {
+    listenToBtn() {
         this.parseButtonEl.addEventListener('click', (event) => {
             // Send msg to parse Medium article
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
@@ -27,5 +28,11 @@ class ParseButton {
                     {eventName: 'parse'});
             });
         });
+    }
+
+    listenToTheme() {
+        eventHub.listen('themeChanged', () => {
+            this.setBtnStyles()
+        })
     }
 }

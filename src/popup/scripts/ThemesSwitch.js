@@ -1,7 +1,6 @@
 class ThemesSwitch {
-    constructor(themes, themeManager) {
+    constructor(themes) {
         this.themes = themes
-        this.themeManager = themeManager
         this.themesSwitchEl = document.querySelector('#themesSwitch')
 
         this.themeLinkeEl = document.querySelector('#themeLink')
@@ -11,26 +10,40 @@ class ThemesSwitch {
 
     init() {
         // Init <select/> styles
-        this.initStyles()
+        this.setSwitchStyles()
 
         // Get default theme name
         this.getDefaultThemeName()
 
         // Bind switching theme event
-        this.bindEvent()
+        this.listenToSwitchChange()
+
+        // Bind listener for theme changing
+        this.listenToTheme()
     }
 
     setPopupTheme(themeName) {
-        this.themeLinkeEl.href = `../lib/highlight/styles/${themeName}.css`
+        if (themeName) {
+            this.themeLinkeEl.href = `../lib/highlight/styles/${themeName}.css`
+        }
     }
 
-    initStyles() {
-        this.themeManager.getStylesByClassName('hljs-string', (computedStyles) => {
+    setSwitchStyles() {
+        themeManager.getStylesByClassName('hljs-string', (computedStyles) => {
             this.themesSwitchEl.style.border = `1px solid ${computedStyles.color}`
+            this.themesSwitchEl.style.color = `${computedStyles.color}`
         })
     }
 
-    bindEvent() {
+    listenToTheme() {
+        eventHub.listen('themeChanged', (themeName) => {
+            this.setPopupTheme(themeName)
+
+            this.setSwitchStyles()
+        })
+    }
+
+    listenToSwitchChange() {
         this.themesSwitchEl.addEventListener('change', (event) => {
             let themeName = event.target.value
             // Send msg to parse switch theme
@@ -40,8 +53,8 @@ class ThemesSwitch {
                     {eventName: 'switchThemeName', themeName: themeName});
             });
 
-            // Change popup theme
-            this.setPopupTheme(themeName)
+            // Trigger theme change event
+            eventHub.trigger('themeChanged', themeName)
         })
     }
 

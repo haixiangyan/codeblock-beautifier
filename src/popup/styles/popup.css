@@ -18,7 +18,7 @@ body {
     transition: transform .3s;
 }
 #themesSwitch:hover {
-    transform: scale(1.1)
+    transform: scale(1.2)
 }
 
 /*Theme section*/
@@ -45,7 +45,7 @@ section.theme select {
     transition: transform .3s;
 }
 #langsSwitch > .lang-wrapper:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 #langsSwitch > .lang-wrapper > label {
     margin-left: 4px;
@@ -63,7 +63,7 @@ section.theme select {
     transition: transform .3s;
 }
 #autoParseSwitch:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /*Action button styles*/
@@ -75,7 +75,7 @@ section.theme select {
     cursor: pointer;
 }
 #parseBtn:hover, #revertBtn:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 @keyframes breathe {

@@ -1,7 +1,6 @@
 class LangsSwitch {
-    constructor(langs, themeManager) {
+    constructor(langs) {
         this.langs = langs
-        this.themeManager = themeManager
         this.langsPrefer = langs
         this.langsSwitch = document.querySelector('#langsSwitch')
         this.computedStyles = {}
@@ -10,7 +9,7 @@ class LangsSwitch {
     }
 
     init() {
-        this.themeManager.getStylesByClassName('hljs-variable', (computedStyles) => {
+        themeManager.getStylesByClassName('hljs-variable', (computedStyles) => {
             // Get computed styles of class 'hljs-variable'
             this.computedStyles = computedStyles
 
@@ -19,7 +18,7 @@ class LangsSwitch {
         })
     }
 
-    bindCheckEvent(spanEl, lang) {
+    listenToCheckbox(spanEl, lang) {
         // Use event hosting to listen to check event
         spanEl.addEventListener('click', (event) => {
             let fakeCheckbox = event.currentTarget.querySelector('.fake-checkbox')
@@ -93,7 +92,7 @@ class LangsSwitch {
             spanEl.appendChild(new Text(", "))
         }
 
-        this.bindCheckEvent(spanEl, lang)
+        this.listenToCheckbox(spanEl, lang)
 
         return spanEl
     }

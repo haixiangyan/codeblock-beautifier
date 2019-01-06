@@ -1,6 +1,5 @@
 class AutoParseSwitch {
-    constructor(themeManager) {
-        this.themeManager = themeManager
+    constructor() {
         this.autoParseSwitch = document.querySelector('#autoParseSwitch')
         this.trueOption = this.autoParseSwitch.querySelector('option[value="true"]')
         this.falseOption = this.autoParseSwitch.querySelector('option[value="false"]')
@@ -10,11 +9,13 @@ class AutoParseSwitch {
     }
 
     init() {
-        this.initStyles()
+        this.setSwitchStyles()
 
         this.getDefaultAutoParse()
 
-        this.bindEvent()
+        this.listenToSwitch()
+
+        this.listenToTheme()
     }
 
     initSwitch() {
@@ -28,9 +29,10 @@ class AutoParseSwitch {
         }
     }
 
-    initStyles() {
-        this.themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
+    setSwitchStyles() {
+        themeManager.getStylesByClassName('hljs-keyword', (computedStyles) => {
             this.autoParseSwitch.style.border = `1px solid ${computedStyles.color}`
+            this.autoParseSwitch.style.color = `${computedStyles.color}`
         })
     }
 
@@ -47,10 +49,16 @@ class AutoParseSwitch {
         });
     }
 
-    bindEvent() {
+    listenToSwitch() {
         this.autoParseSwitch.addEventListener('change', (event) => {
             this.isAutoParse = !this.isAutoParse
             this.setAutoParse()
+        })
+    }
+
+    listenToTheme() {
+        eventHub.listen('themeChanged', () => {
+            this.setSwitchStyles()
         })
     }
 }
