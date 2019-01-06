@@ -7,7 +7,7 @@ class Parser {
 
         this.themeManager = new ThemeManager()
 
-        this.preEls = Array.from(document.querySelectorAll('pre'))
+        this.preEls = []
 
         this.linkEl = null
 
@@ -19,11 +19,8 @@ class Parser {
     }
 
     init() {
-        // Pre-process <pre/> elements
-        this.preprocess()
-
-        // Cache for revert
-        this.cachePreElsContent()
+        // // To get preEls and cache them
+        // this.prepareCodeBlocks()
 
         // Get default theme and invoke corresponding CSS file
         this.getDefaultThemeName()
@@ -35,6 +32,16 @@ class Parser {
 
         // Get default auto parse
         this.getDefaultAutoParse()
+    }
+
+    prepareCodeBlocks() {
+        this.preEls = Array.from(document.querySelectorAll('pre'))
+
+        // Pre-process <pre/> elements
+        this.mixinPreEls()
+
+        // Cache for revert
+        this.cachePreElsContent()
     }
 
     cachePreElsContent() {
@@ -61,7 +68,7 @@ class Parser {
         document.querySelector('head').appendChild(this.linkEl)
     }
 
-    preprocess() {
+    mixinPreEls() {
         // Mixin relative <pre/> elements
         let miner = new Mixiner()
         miner.elsMixin(this.preEls)
@@ -91,7 +98,7 @@ class Parser {
 
             // Register language preference to hljs
             this.setAutoDetectLangs()
-        });
+        })
     }
 
     setThemeName(themeName) {
@@ -176,8 +183,13 @@ class Parser {
 
     // Parse the whole page
     parse() {
+        // If no theme css link, then create it
         if (!this.linkEl) {
             this.initThemeCSS()
+        }
+        // If no preEls, then get them and cache them
+        if (this.preEls.length === 0) {
+            this.prepareCodeBlocks()
         }
         // Get .hljs computed styles
         this.themeManager.getStylesByClassName('hljs', (computedStyles) => {
