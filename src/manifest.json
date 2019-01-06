@@ -29,6 +29,7 @@
         "lib/highlight/highlight.pack.js",
         "db/langs.js",
         "common/ThemeManager.js",
+        "common/EventHub.js",
         "content/scripts/Mixiner.js",
         "content/scripts/SelectionPanel.js",
         "content/scripts/CodeBlock.js",

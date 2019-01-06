@@ -1,1 +1,3 @@
-new Parser(langs)
+let eventHub = new EventHub()
+
+let parser = new Parser(langs)

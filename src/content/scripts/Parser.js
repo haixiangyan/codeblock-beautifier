@@ -79,7 +79,6 @@ class Parser {
     getDefaultThemeName() {
         chrome.storage.sync.get(['themeName'], (result) => {
             this.themeName = result.themeName || 'atom-one-dark'
-            console.log('Theme currently is ' + this.themeName);
         });
     }
 
@@ -89,7 +88,6 @@ class Parser {
 
             // Sort
             this.sortLangsPrefer()
-            console.log('Langs preference is ' + this.langsPrefer.map((langPrefer) => langPrefer.value));
 
             // Register language preference to hljs
             this.setAutoDetectLangs()
@@ -98,25 +96,18 @@ class Parser {
 
     setThemeName(themeName) {
         this.themeName = themeName
-        chrome.storage.sync.set({themeName: this.themeName}, () => {
-            console.log('Theme is set to ' + this.themeName);
-        });
+        chrome.storage.sync.set({themeName: this.themeName}, () => { });
     }
 
     setLangsPrefer(langsPrefer) {
         this.langsPrefer = langsPrefer
         chrome.storage.sync.set({langsPrefer: this.langsPrefer}, () => {
-            console.log('Langs preference is set to ' + this.langsPrefer.map(((langPrefer) => langPrefer.value)));
             // Register language preference to hljs
             this.setAutoDetectLangs()
         });
     }
 
-    switchTheme(themeName) {
-        // Switch to corresponding CSS file
-        let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
-        this.linkEl && this.linkEl.setAttribute('href', href)
-
+    setCodeBlockStyles() {
         // Switch to corresponding theme properties
         this.themeManager.getStylesByClassName('hljs', (computedStyles) => {
             this.codeBlocks.forEach((codeBlock) => {
@@ -125,12 +116,19 @@ class Parser {
         })
     }
 
+    switchTheme(themeName) {
+        // Switch to corresponding CSS file
+        let href = chrome.runtime.getURL(`lib/highlight/styles/${themeName}.css`)
+        this.linkEl && this.linkEl.setAttribute('href', href)
+
+        this.setCodeBlockStyles()
+    }
+
     // Receive msg from popup.js
     bindEvent() {
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             switch (request.eventName) {
                 case 'parse':
-                    console.log('Parsing this article');
                     this.parse()
                     break
                 case 'revert':
