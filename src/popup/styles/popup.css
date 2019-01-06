@@ -13,6 +13,12 @@ body {
 #themesSwitch {
     display: inline-block;
     padding: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform .3s;
+}
+#themesSwitch:hover {
+    transform: scale(1.1)
 }
 
 /*Theme section*/
@@ -39,7 +45,7 @@ section.theme select {
     transition: transform .3s;
 }
 #langsSwitch > .lang-wrapper:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 #langsSwitch > .lang-wrapper > label {
     margin-left: 4px;
@@ -52,12 +58,27 @@ section.theme select {
 #autoParseSwitch {
     display: inline-block;
     padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform .3s;
+}
+#autoParseSwitch:hover {
+    transform: scale(1.1);
 }
 
 /*Action button styles*/
-.btn-group {
-}
-
 #parseBtn {
     margin-bottom: 6px;
+}
+
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
