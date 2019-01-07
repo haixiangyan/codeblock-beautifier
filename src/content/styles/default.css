@@ -11,7 +11,6 @@ code[data-highlight] {
 }
 
 pre[data-highlight], code[data-highlight] {
-    font-family: Menlo,Monaco,"Courier New",Courier,monospace !important;
     font-weight: 400 !important;
     line-height: 1.4 !important;
     white-space: pre-wrap !important;
