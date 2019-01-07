@@ -85,20 +85,20 @@ There may have some problems that I haven't found for this extension yet. If you
 
 * Add styles to beautify each code blocks.
 
-### v1.1
+### v1.0.1
 
 * Enable user to select highlight languages with adding a panel below code blocks. 
 
 * Enable user to select different theme and apply to all code blocks.
 
-### v1.2
+### v1.0.2
 
 * Enable user to select highlight languages preference. Because highlight.js may detect wrong languages,
 setting highlight languages preference can let it detect correctly.
 
 * Add revert action. User can revert parsed code blocks to original styles.
 
-### v1.3
+### v1.0.3
 
 * Add background color of theme to inline style of `<code/>` to adapt most websites.
 
@@ -115,3 +115,13 @@ setting highlight languages preference can let it detect correctly.
     * Reverting to original HTML elements.
     
     * Can switch language preference immediately.
+    
+### v1.0.4
+
+* Update to a new UI. Switching to "Codes" styles from plain HTML element.
+
+* Fix bugs:
+    
+    * Enable to cover original styles with hljs for Popup page.
+    
+    * Add event hub to notify all components in Popup page.
