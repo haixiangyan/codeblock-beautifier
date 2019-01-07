@@ -1,7 +1,7 @@
 # Code Block Beautifier
 
 <p align="center">
-    <img src="screenshot/icon-origin.png">
+    <img width="400" src="screenshot/icon-origin.png">
 </p>
 
 A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
