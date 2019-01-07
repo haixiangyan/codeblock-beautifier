@@ -56,6 +56,6 @@ class ThemeManager {
                 newHljsStyleCodes += hljsStyle + '}\n'
             })
             this.newStyleEl.innerText = newHljsStyleCodes
-        }, 60)
+        }, 100)
     }
 }
