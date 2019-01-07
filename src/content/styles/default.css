@@ -16,7 +16,7 @@ pre[data-highlight], code[data-highlight] {
     white-space: pre-wrap !important;
 }
 
-pre[data-highlight] select, div {
+pre[data-highlight] select, pre[data-highlight] div {
     outline: none;
     color: black !important;
     border-radius: 0 0 10px 10px;
