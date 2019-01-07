@@ -7,7 +7,7 @@
 A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
 Thanks to [highlight.js](https://highlightjs.org/), I don't need to write so many codes for language detection and tons of themes 😂.
 
-You can watch a [video]() to preview it.
+You can watch a [video](https://www.youtube.com/watch?v=XdkuZrC1PJQ) to preview it.
 
 [中文文档请看这里](./README-CN.md)
 
