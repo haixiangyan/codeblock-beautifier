@@ -1,10 +1,8 @@
 pre[data-highlight] {
     padding: 0 !important;
     background: white !important;
-    border-bottom-right-radius: 10px !important;
-    border-top-left-radius: 10px !important;
-    border-top-right-radius: 10px !important;
-    box-shadow: 0px 0px 35px 0px rgba(201,195,201,1) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 35px 0 rgba(201,195,201,1) !important;
 }
 
 code[data-highlight] {
@@ -19,6 +17,8 @@ pre[data-highlight], code[data-highlight] {
     white-space: pre-wrap !important;
 }
 
-pre[data-highlight] select {
+pre[data-highlight] select, div {
+    outline: none;
     color: black !important;
+    border-radius: 0 0 10px 10px;
 }

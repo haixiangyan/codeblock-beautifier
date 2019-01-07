@@ -22,6 +22,7 @@ class SelectionPanel {
 
     generateLangSelector() {
         let langSelectEl = document.createElement('select')
+        // langSelectEl.setAttribute('data-highlight', true)
 
         // From langs.js, building options for <select/>
         this.langsPrefer.forEach((langPrefer) => {

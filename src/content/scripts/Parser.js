@@ -15,6 +15,8 @@ class Parser {
         // Cache each element innerHTML for reverting
         this.preElsCache = []
 
+        this.isParsed = false
+
         this.init()
     }
 
@@ -161,6 +163,11 @@ class Parser {
 
     // Revert to original styles
     revert() {
+        // If it's not parsed, then do nothing
+        if (!this.isParsed) {
+            return
+        }
+
         for (let i = 0; i < this.preEls.length; i++) {
             this.preEls[i].removeAttribute('data-highlight')
             // Check content type
@@ -183,6 +190,10 @@ class Parser {
 
     // Parse the whole page
     parse() {
+        // If it's already been parsed then do nothing
+        if (this.isParsed) {
+            return
+        }
         // If no theme css link, then create it
         if (!this.linkEl) {
             this.initThemeCSS()
@@ -198,6 +209,7 @@ class Parser {
                 return new CodeBlock(preEl, this.langsPrefer, computedStyles)
             })
         })
+        this.isParsed = true
     }
 
     sortLangsPrefer() {
