@@ -42,7 +42,7 @@ class LangsSwitch {
             if (fakeCheckbox.className.indexOf('is-check') > -1) {
                 // Remove this language
                 this.langsPrefer = this.langsPrefer.filter((langPrefer) => {
-                    return langPrefer.value !== lang.value
+                    return langPrefer.className !== lang.className
                 })
             }
             else {
@@ -84,10 +84,10 @@ class LangsSwitch {
     }
 
     generateCheckboxes() {
-        let langsPreferValue = this.langsPrefer.map((langPrefer) => langPrefer.value)
+        let langsPreferClassName = this.langsPrefer.map((langPrefer) => langPrefer.className)
 
         this.langs.forEach((lang, index) => {
-            let fakeCheckbox = this.generateCheckbox(lang, langsPreferValue)
+            let fakeCheckbox = this.generateCheckbox(lang, langsPreferClassName)
 
             let labelEl = this.generateLabel(lang)
 
@@ -111,12 +111,12 @@ class LangsSwitch {
         return spanEl
     }
 
-    generateCheckbox(lang, langsPreferValue) {
+    generateCheckbox(lang, langsPreferClassName) {
         let fakeCheckbox = document.createElement('span')
-        fakeCheckbox.setAttribute('data-value', lang.value)
+        fakeCheckbox.setAttribute('data-className', lang.className)
         fakeCheckbox.setAttribute('data-text', lang.text)
         fakeCheckbox.classList.add('fake-checkbox', 'cover-hljs-variable')
-        if (langsPreferValue.indexOf(lang.value) > -1) {
+        if (langsPreferClassName.indexOf(lang.className) > -1) {
             fakeCheckbox.classList.add('is-check')
             fakeCheckbox.setAttribute('data-check', true)
         }
@@ -138,7 +138,7 @@ class LangsSwitch {
 
     generateLabel(lang) {
         let labelEl = document.createElement('label')
-        labelEl.setAttribute('for', lang.value)
+        labelEl.setAttribute('for', lang.className)
         labelEl.setAttribute('class', 'hljs-variable')
         labelEl.innerText = lang.text
 
@@ -147,7 +147,7 @@ class LangsSwitch {
 
     sortLangsPrefer() {
         this.langsPrefer.sort((langA, langB) => {
-            return langB.value.length - langA.value.length
+            return langB.className.length - langA.className.length
         })
     }
 }

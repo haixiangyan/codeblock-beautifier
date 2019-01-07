@@ -13,7 +13,7 @@ class SelectionPanel {
     init() {
         this.panel.appendChild(this.langSelector)
 
-        this.bindEvents()
+        this.listenToLangSwitch()
     }
 
     generatePanelEl() {
@@ -26,8 +26,8 @@ class SelectionPanel {
         // From langs.js, building options for <select/>
         this.langsPrefer.forEach((langPrefer) => {
             let optionEl = document.createElement('option')
-            optionEl.setAttribute('value', langPrefer.value)
-            optionEl.selected = (this.lang === langPrefer.value)
+            optionEl.setAttribute('value', langPrefer.className)
+            optionEl.selected = (this.lang === langPrefer.className)
             optionEl.innerText = langPrefer.text
 
             langSelectEl.appendChild(optionEl)
@@ -36,7 +36,7 @@ class SelectionPanel {
         return langSelectEl
     }
 
-    bindEvents() {
+    listenToLangSwitch() {
         this.langSelector.addEventListener('change', (event) => {
             // Update highlight language
             this.codeEl.setAttribute('class', `hljs ${event.target.value}`)

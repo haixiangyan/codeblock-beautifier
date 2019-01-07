@@ -155,7 +155,7 @@ class Parser {
     // Register language preference to hljs
     setAutoDetectLangs() {
         hljs.configure({
-            languages: this.langsPrefer.map((langPrefer) => langPrefer.value)
+            languages: this.langsPrefer.map((langPrefer) => langPrefer.className)
         })
     }
 
@@ -202,7 +202,7 @@ class Parser {
 
     sortLangsPrefer() {
         this.langsPrefer.sort((langA, langB) => {
-            return langB.value.length - langA.value.length
+            return langB.className.length - langA.className.length
         })
     }
 }

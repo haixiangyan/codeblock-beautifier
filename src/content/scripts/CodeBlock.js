@@ -56,23 +56,35 @@ class CodeBlock {
 
     // If this code block defines a language, then use it
     detectLang() {
-        let langValue = ''
+        let langValues = []
         let preElAttrs = this.preEl.attributes
         let codeElAttrs = this.codeEl.attributes
         for (let i = 0; i < this.langsPrefer.length; i++) {
-            langValue = this.langsPrefer[i].value
+            langValues = this.langsPrefer[i].value.split('/')
             for (let preElAttrIndex = 0; preElAttrIndex < preElAttrs.length; preElAttrIndex++) {
-                if (preElAttrs[preElAttrIndex].name.indexOf(langValue) > -1 || preElAttrs[preElAttrIndex].value.indexOf(langValue) > -1) {
-                    return langValue
+                const {name, value} = preElAttrs[preElAttrIndex]
+                if (this.detectIfAttrHasLang(langValues, name) || this.detectIfAttrHasLang(langValues, value)) {
+                    return this.langsPrefer[i].className
                 }
             }
             for (let codeElAttrIndex = 0; codeElAttrIndex < codeElAttrs.length; codeElAttrIndex++) {
-                if (codeElAttrs[codeElAttrIndex].name.indexOf(langValue) > -1 || codeElAttrs[codeElAttrIndex].value.indexOf(langValue) > -1) {
-                    return langValue
+                const {name, value} = codeElAttrs[codeElAttrIndex]
+                if (this.detectIfAttrHasLang(langValues, name) || this.detectIfAttrHasLang(langValues, value)) {
+                    return this.langsPrefer[i].className
                 }
             }
         }
 
         return ''
+    }
+
+    detectIfAttrHasLang(langValues, possibleLangStr) {
+        for (let i = 0; i < langValues.length; i++) {
+            if (possibleLangStr.indexOf(langValues[i]) > -1) {
+                return true
+            }
+        }
+
+        return false
     }
 }
