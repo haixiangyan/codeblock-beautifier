@@ -133,6 +133,13 @@ class Parser {
         this.setCodeBlockBg()
     }
 
+    applyNewLangsPrefer() {
+        if (this.isParsed) {
+            this.revert()
+            this.parse()
+        }
+    }
+
     // Receive msg from popup.js
     bindEvent() {
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -159,6 +166,8 @@ class Parser {
         hljs.configure({
             languages: this.langsPrefer.map((langPrefer) => langPrefer.className)
         })
+
+        this.applyNewLangsPrefer()
     }
 
     // Revert to original styles
@@ -181,11 +190,14 @@ class Parser {
         }
 
         this.removeLinkEl()
+        this.isParsed = false
     }
 
     removeLinkEl() {
-        this.linkEl.remove()
-        this.linkEl = null
+        if (this.linkEl) {
+            this.linkEl.remove()
+            this.linkEl = null
+        }
     }
 
     // Parse the whole page

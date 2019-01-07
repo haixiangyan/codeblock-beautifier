@@ -54,10 +54,6 @@ class LangsSwitch {
 
             this.sortLangsPrefer()
             this.setLangsPrefer()
-            // Wait for setting new language preference
-            setTimeout(() => {
-                this.applyLangsPrefer()
-            }, 100)
         })
     }
 
@@ -75,12 +71,6 @@ class LangsSwitch {
                 tabs[0].id,
                 {eventName: 'switchLangsPrefer', langsPrefer: this.langsPrefer});
         });
-    }
-
-    // Apply language preference to this page
-    applyLangsPrefer() {
-        document.querySelector('#revertBtn').click()
-        document.querySelector('#parseBtn').click()
     }
 
     generateCheckboxes() {
