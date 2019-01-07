@@ -1,17 +1,27 @@
 # Code Block Beautifier 
-![Logo](screenshot/icon-origin.png)
+<p align="center">
+    <img width="200" src="screenshot/icon-origin.png">
+</p>
 
-A chrome extension for beautifying code blocks in any websites that contain `<pre/>` elements. It is developed based on [highlight.js](https://highlightjs.org/) and [Chrome Extension API](https://developer.chrome.com/home).
+<h1 align="center">Code Block Beautifier</h1>
 
-## Screenshot
+## Introduction
 
-Click picture below to preview on YouTube!
+A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
+Thanks to [highlight.js](https://highlightjs.org/), I don't need to write so many codes for language detection and tons of themes 😂.
 
 [![Extension Preview](https://img.youtube.com/vi/mT6-d432234/0.jpg)](https://www.youtube.com/watch?v=mT6-d432234)
 
-## Download
+## Screenshot
 
-Check [this]() on Chrome app store.
+<p align="center">
+    <img width="200" src="screenshot/before.png">
+    <img width="200" src="screenshot/after.png">
+</p>
+
+## Install & Download
+
+Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn) on Chrome app store.
 
 or
 
@@ -19,45 +29,22 @@ or
 
 ## How to use
 
-### Switch theme
-Left click the extension, then it will popup a panel. Select any themes you love, and it will switch to that theme immediately.
-
-![Switch Theme](screenshot/themeSelector.png)
-
-### Switch languages
-Because Medium.com doesn't allow us to specify what languages for code blocks, highlight.js may detect a wrong language.
-You may need to select the correct language manually.
-
-On the bottom left of each code block, there's a selector for you to pick the correct language.
-
-![Languages Selector](screenshot/langsSelector.png)
-
-### Switch language preference
-If you read articles are all about Front-end Development, you can only select JavaScript, HTML and CSS as your preference.
-Then it will only auto-detect these 3 languages.
-
-![Languages Preference](screenshot/langPrefer.png)
-
-### Auto highlight
-You can check auto-parse checkbox to let it highlight automatically when opening a new article.
-
-### Revert
-If you still like Medium style, you can click revert button to go back to original styles or uninstall my ext (Please don't do this XD).l
+![How to use](screenshot/how-to-use.png)
 
 ## Features
 
 * ⚒ Beautify any code blocks wrapping in `<pre/>` automatically. 
 
+* 🧲 Beautify code blocks according to your languages preference.
+
+* 🔓 Auto detect what languages that the author defines
+
+* 🎁 Supporting [Medium](https://medium.com/), [StackOverflow](https://stackoverflow.com/),
+[简书](https://www.jianshu.com/), [知乎](https://www.zhihu.com/), [W3C Plus](https://www.w3cplus.com/).
+
 * 🎉 More than 80 themes are available. Can switch to any language highlight solutions.
 
 * 🎊 More than 20 language highlight themes are available. Can switch to any highlight themes you like.
-
-* 🧲 Parser will beautify code blocks according to your languages preference.
-
-* 🔓 Auto detect what languages that the website defines
-
-* 🎁 Supporting [Medium](https://medium.com/), [StackOverflow](https://stackoverflow.com/), [MDN](https://developer.mozilla.org/en-US/),
-[简书](https://www.jianshu.com/), [知乎](https://www.zhihu.com/), [W3C Plus](https://www.w3cplus.com/).
 
 ## Purpose
 The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
@@ -125,3 +112,5 @@ setting highlight languages preference can let it detect correctly.
     * Enable to cover original styles with hljs for Popup page.
     
     * Add event hub to notify all components in Popup page.
+    
+    * Enable to detect language by checking attributes of <pre/> and <code/>
