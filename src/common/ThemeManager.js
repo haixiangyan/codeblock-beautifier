@@ -41,7 +41,7 @@ class ThemeManager {
         setTimeout(() => {
             let computedStyles = getComputedStyle(this.tempWrapper.querySelector(`*[class="${className}"]`))
             callback(computedStyles)
-        }, 100)
+        }, 50)
     }
 
     getHljsStyles() {
@@ -56,6 +56,6 @@ class ThemeManager {
                 newHljsStyleCodes += hljsStyle + '}\n'
             })
             this.newStyleEl.innerText = newHljsStyleCodes
-        }, 100)
+        }, 60)
     }
 }

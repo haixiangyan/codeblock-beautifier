@@ -9,7 +9,6 @@ class ParseButton {
         this.listenToBtn()
     }
 
-
     listenToBtn() {
         this.parseButtonEl.addEventListener('click', (event) => {
             // Send msg to parse Medium article
