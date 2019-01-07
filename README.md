@@ -1,13 +1,15 @@
 # Code Block Beautifier
 
 <p align="center">
-    <img width="200" src="screenshot/icon-origin.png">
+    <img src="screenshot/icon-origin.png">
 </p>
 
 A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
 Thanks to [highlight.js](https://highlightjs.org/), I don't need to write so many codes for language detection and tons of themes 😂.
 
 You can watch a [video]() to preview it.
+
+[中文文档请看这里](./README-CN.md)
 
 ## Screenshot
 
