@@ -1,11 +1,11 @@
 # Code Block Beautifier
 
 <p align="center">
-    <img width="200" src="screenshot/icon-origin.png">
+    <img width="400" src="screenshot/icon-origin.png">
 </p>
 
 本插件主要用于高亮网站中 `<pre><code>...</code></pre>` 结构里的代码。
-十分感谢 [highlight.js](https://highlightjs.org/]，让我少写了很多自动检测语言和主题色的代码 😂。 
+十分感谢 [highlight.js](https://highlightjs.org/)，让我少写了很多自动检测语言和主题色的代码 😂。 
 
 你可以这个[视频]()来了解这个插件。
 
