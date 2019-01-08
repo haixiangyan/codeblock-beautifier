@@ -27,14 +27,9 @@
       ],
       "js": [
         "lib/highlight/highlight.pack.js",
-        "db/langs.js",
-        "common/ThemeManager.js",
-        "common/EventHub.js",
-        "content/scripts/Mixiner.js",
-        "content/scripts/SelectionPanel.js",
-        "content/scripts/CodeBlock.js",
-        "content/scripts/Parser.js",
-        "content/scripts/index.js"
+        "db/main.js",
+        "common/main.js",
+        "content/scripts/main.js"
       ]
     }
   ],

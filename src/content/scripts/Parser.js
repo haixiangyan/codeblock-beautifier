@@ -140,7 +140,7 @@ class Parser {
         }
     }
 
-    // Receive msg from popup.js
+    // Receive msg from main.js
     bindEvent() {
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             switch (request.eventName) {

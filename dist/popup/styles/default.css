@@ -1,0 +1,72 @@
+/*Reset styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+select, input, button {
+    outline: none;
+}
+
+/*Button*/
+.btn {
+    width: 100%;
+    border: none;
+    padding: 6px;
+    color: white;
+    cursor: pointer;
+}
+.primary-btn {
+    background: #0E6397;
+}
+.danger-btn {
+    background: #D61425;
+}
+
+/*Fake checkbox*/
+.fake-checkbox {
+    display: inline-flex;
+    padding: 1px;
+    height: 13px;
+    width: 13px;
+    border: 1px solid yellow;
+    border-radius: 2px;
+}
+.fake-checkbox span {
+    height: 0;
+    width: 0;
+    border-radius: 2px;
+    transition: all .3s;
+}
+.fake-checkbox.is-check span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+/*Statement styles*/
+.statement {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.tab {
+    padding-left: 20px;
+}
+
+/*Multi comment styles*/
+.multi-comment {
+    padding-left: 4px;
+}
+
+/*Line number styles*/
+.line-number {
+    display: inline-block;
+    padding-right: 5px;
+    width: 20px;
+    color: #858585;;
+    text-align: right;
+    border-right: 1px solid #404040;
+}
