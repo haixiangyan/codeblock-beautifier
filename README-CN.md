@@ -7,7 +7,7 @@
 本插件主要用于高亮网站中 `<pre><code>...</code></pre>` 结构里的代码。
 十分感谢 [highlight.js](https://highlightjs.org/)，让我少写了很多自动检测语言和主题色的代码 😂。 
 
-你可以这个[视频]()来了解这个插件。
+你也可以通过这个[视频](https://www.bilibili.com/video/av40197852/)来了解这个插件。
 
 ## 样例
 
