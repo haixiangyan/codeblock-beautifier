@@ -43,18 +43,18 @@ or
 * 🎊 More than 20 language highlight themes are available. Can switch to any highlight themes you like.
 
 ## Purpose
-The main reason I develop it it because [Medium](www.medium.com) doesn't provide a good highlight code blocks.
-Well, I know there are several ways to embed codes in it, but some people (like me) don't wanna create a gist or code sandbox project to put codes on my block. So most of time, I see this 🙄:
+The main reason I built it is because [Medium](www.medium.com) doesn't highlight our codes.
+Well, I know there are several ways to embed codes in the articles, but some people (like me) don't wanna create a gist or codesandbox project to highlight the codes. So most of time, I see this 🙄:
 
 ![No highlight](screenshot/notHighlight.png)
 
-What I expect should be like this 😄:
+What I expect is like this 😄:
 
 ![Highlight](screenshot/highlight.png)
 
-So I build an extension to beautify code blocks in [Medium](www.medium.com).
+So I built an extension to beautify code blocks in [Medium](www.medium.com).
 
-It does beautify all code blocks. It can also be used for other websites that contain `<pre/>`.
+It can also be used for other websites that contain `<pre/>`.
 The only thing you need to do is to press the "Parse" button!
 
 ## Future
