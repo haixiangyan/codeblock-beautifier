@@ -21,7 +21,7 @@ Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpc
 
 or
 
-[Download from ./dist/codeblock-beautifier.crx](pkg/codeblock-beautifier.crx) it anyway.
+[Download from ./pkg/codeblock-beautifier.crx](pkg/codeblock-beautifier.crx) it anyway.
 
 ## How to use
 

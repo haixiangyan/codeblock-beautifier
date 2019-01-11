@@ -19,7 +19,7 @@
 
 或者
 
-从本项目的[./dist/codeblock-beautifier.crx](pkg/codeblock-beautifier.crx) 下载，再安装到 Chrome 上。
+从本项目的[./dist/pkg-beautifier.crx](pkg/codeblock-beautifier.crx) 下载，再安装到 Chrome 上。
 
 ## 使用 
 
