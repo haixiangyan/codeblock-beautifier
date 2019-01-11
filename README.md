@@ -19,10 +19,6 @@ You can watch a [video](https://www.youtube.com/watch?v=XdkuZrC1PJQ) to preview 
 
 Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn) on Chrome app store.
 
-or
-
-[Download from ./pkg/codeblock-beautifier.crx](pkg/codeblock-beautifier.crx) it anyway.
-
 ## How to use
 
 ![How to use](screenshot/how-to-use.png)

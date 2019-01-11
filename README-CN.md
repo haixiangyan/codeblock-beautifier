@@ -17,10 +17,6 @@
 
 你可以点[这里](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn)从谷歌商店安装这个插件。
 
-或者
-
-从本项目的[./dist/pkg-beautifier.crx](pkg/codeblock-beautifier.crx) 下载，再安装到 Chrome 上。
-
 ## 使用 
 
 ![使用](screenshot/how-to-use.png)
