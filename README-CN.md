@@ -17,6 +17,8 @@
 
 你可以点[这里](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn)从谷歌商店安装这个插件。
 
+如果不能科学上网，可以直接从 Github 上[直接下载](https://github.com/Haixiang6123/codeblock-beautifier/blob/master/pkg/codeblock-beautifier.crx)
+
 ## 使用 
 
 ![使用](screenshot/how-to-use.png)
@@ -25,7 +27,7 @@
 
 * ⚒ 高亮美化网站中 `<pre/>` 里的代码
 
-* 🧲 可以根据你的语言偏好来自动高亮对应编程语言
+* 🕶 可以根据你的语言偏好来自动高亮对应编程语言
 
 * 🔓 可以自动检测网站中已定义的语言，并高亮
 
