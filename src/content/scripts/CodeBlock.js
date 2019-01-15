@@ -79,6 +79,12 @@ class CodeBlock {
     }
 
     detectIfAttrHasLang(langValues, possibleLangStr) {
+        // Exclude some predefined patterns
+        const excludePatterns = ['hljs', 'testjs']
+        const excludeRegExp = new RegExp(`(${excludePatterns.join('|')})`)
+        possibleLangStr = possibleLangStr.replace(excludeRegExp, '')
+
+        // Start to detect
         for (let i = 0; i < langValues.length; i++) {
             if (possibleLangStr.indexOf(langValues[i]) > -1) {
                 return true
