@@ -17,6 +17,8 @@
 
 你可以点[这里](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn)从谷歌商店安装这个插件。
 
+如果不能科学上网，可以直接从 Github 上[直接下载](https://github.com/Haixiang6123/codeblock-beautifier/blob/master/pkg/codeblock-beautifier.crx)
+
 ## 使用 
 
 ![使用](screenshot/how-to-use.png)
@@ -25,7 +27,7 @@
 
 * ⚒ 高亮美化网站中 `<pre/>` 里的代码
 
-* 🧲 可以根据你的语言偏好来自动高亮对应编程语言
+* 🕶 可以根据你的语言偏好来自动高亮对应编程语言
 
 * 🔓 可以自动检测网站中已定义的语言，并高亮
 
@@ -48,7 +50,7 @@
 
 所以我写了这个插件来高亮 [Medium](www.medium.com) 里的代码块，后面还意外发现简书，知乎，StackOverflow 等网站都能高亮，嘻嘻！
 
-## Future
+## 最后
 在巴哈马旅游的时候就在构想这个插件，元旦回来后立马开工写了6天左右，其中也修复了很多 Bug。
 当然 Bug 是修不完的，肯定还有一些 Bug 我没发现，如果你遇到了请给我写 Issue！
-如果你也喜欢我的插件，麻烦给个一星好评 :)，谢谢！
+如果你也喜欢我的插件，麻烦给个五星好评 :)，谢谢！
