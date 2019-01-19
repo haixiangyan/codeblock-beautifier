@@ -6,7 +6,6 @@
 
 ![](https://img.shields.io/chrome-web-store/v/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
 ![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
-![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
 ![](https://img.shields.io/chrome-web-store/stars/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
 ![](https://img.shields.io/github/license/Haixiang6123/codeblock-beautifier.svg)
 
