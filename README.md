@@ -4,6 +4,12 @@
     <img width="400" src="screenshot/icon-origin.png">
 </p>
 
+![](https://img.shields.io/chrome-web-store/v/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/stars/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/github/license/Haixiang6123/codeblock-beautifier.svg)
+
 A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
 Thanks to [highlight.js](https://highlightjs.org/), I don't need to write so many codes for language detection and tons of themes 😂.
 

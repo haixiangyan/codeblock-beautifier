@@ -4,6 +4,12 @@
     <img width="400" src="screenshot/icon-origin.png">
 </p>
 
+![](https://img.shields.io/chrome-web-store/v/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/users/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/chrome-web-store/stars/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
+![](https://img.shields.io/github/license/Haixiang6123/codeblock-beautifier.svg)
+
 本插件主要用于高亮网站中 `<pre><code>...</code></pre>` 结构里的代码。
 十分感谢 [highlight.js](https://highlightjs.org/)，让我少写了很多自动检测语言和主题色的代码 😂。 
 
