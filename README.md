@@ -103,7 +103,7 @@ setting highlight languages preference can let it detect correctly.
     
 ### v1.0.4
 
-* Update to a new UI. Switching to "Codes" styles from plain HTML element.
+* Update to a new UI. Switching to "Editor" UI from plain HTML UI.
 
 * Fix bugs:
     
@@ -112,3 +112,9 @@ setting highlight languages preference can let it detect correctly.
     * Add event hub to notify all components in Popup page.
     
     * Enable to detect language by checking attributes of `<pre/>` and `<code/>`.
+    
+### v1.0.5
+
+* Fix bugs:
+    
+    * Improve auto detection by adding regular expression to exclude sensitive string patterns in HTML element attributes. 
