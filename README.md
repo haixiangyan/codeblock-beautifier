@@ -16,13 +16,13 @@ You can watch a [video](https://www.youtube.com/watch?v=XdkuZrC1PJQ) to preview 
 
 [中文文档请看这里](./README-CN.md)
 
-## Screenshot
-
-![Scrrenshot](screenshot/effect.png)
-
 ## Install & Download
 
 Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn) on Chrome app store.
+
+## Screenshot
+
+![Scrrenshot](screenshot/effect.png)
 
 ## How to use
 
