@@ -117,3 +117,9 @@ setting highlight languages preference can let it detect correctly.
 * Fix bugs:
     
     * Improve auto detection by adding regular expression to exclude sensitive string patterns in HTML element attributes. 
+
+### v1.0.6
+
+* Fix bugs:
+    
+    * Avoid to covert codes to comments 
