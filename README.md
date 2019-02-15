@@ -30,9 +30,9 @@ Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpc
 
 ## Features
 
-* ⚒ Beautify any code blocks wrapping in `<pre/>` automatically. 
+* 👙 Beautify any code blocks wrapping in `<pre/>` automatically. 
 
-* 🧲 Beautify code blocks according to your languages preference.
+* 👗 Beautify code blocks according to your languages preference.
 
 * 🔓 Auto detect what languages that the author defines
 
