@@ -21,9 +21,18 @@ class CodeBlock {
         this.generatePanelEl()
     }
 
+    escapeHtml(html) {
+        return html
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     autoHighlight() {
         // Remove HTML tags within <code/> element
-        this.codeEl.innerText = this.codeEl.innerText
+        this.codeEl.innerHTML = this.escapeHtml(this.codeEl.innerText)
 
         hljs.highlightBlock(this.codeEl)
     }

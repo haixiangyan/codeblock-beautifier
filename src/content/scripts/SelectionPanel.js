@@ -37,12 +37,21 @@ class SelectionPanel {
         return langSelectEl
     }
 
+    escapeHtml(html) {
+        return html
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     listenToLangSwitch() {
         this.langSelector.addEventListener('change', (event) => {
             // Update highlight language
             this.codeEl.setAttribute('class', `hljs ${event.target.value}`)
             // Rewrite codes in <code/>
-            this.codeEl.innerText = this.codeEl.innerText
+            this.codeEl.innerHTML = this.escapeHtml(this.codeEl.innerText)
             // Highlight the new code element
             hljs.highlightBlock(this.codeEl)
         })
