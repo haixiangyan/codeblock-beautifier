@@ -9,8 +9,7 @@
 ![](https://img.shields.io/chrome-web-store/stars/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
 ![](https://img.shields.io/github/license/Haixiang6123/codeblock-beautifier.svg)
 
-本插件主要用于高亮网站中 `<pre><code>...</code></pre>` 结构里的代码。
-十分感谢 [highlight.js](https://highlightjs.org/)，让我少写了很多自动检测语言和主题色的代码 😂。 
+本插件主要用于高亮 [Medium]() 里文章的代码块，现在已经可以高亮所有带有 `<pre/>` 元素的网站，如[简书](https://www.jianshu.com/), [知乎](https://www.zhihu.com/)等。
 
 你也可以通过这个[视频](https://www.bilibili.com/video/av40197852/)来了解这个插件。
 
@@ -23,6 +22,8 @@
 你可以点[这里](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn)从谷歌商店安装这个插件。
 
 如果不能科学上网，可以直接从 Github 上[直接下载](https://github.com/Haixiang6123/codeblock-beautifier/blob/master/pkg/codeblock-beautifier.crx)
+
+下载后可以用这篇[文章](https://medium.com/@haixiang6123/do-you-really-know-new-in-js-6ce794874f44)来先尝试一下。
 
 ## 使用 
 
