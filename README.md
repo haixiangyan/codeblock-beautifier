@@ -9,8 +9,7 @@
 ![](https://img.shields.io/chrome-web-store/stars/gpcjjddhdnilcbddlonlfgdbejfboonn.svg)
 ![](https://img.shields.io/github/license/Haixiang6123/codeblock-beautifier.svg)
 
-A chrome extension for beautifying code blocks in any websites that have `<pre><code>...</code></pre>` structure.
-Thanks to [highlight.js](https://highlightjs.org/), I don't need to write so many codes for language detection and tons of themes 😂.
+A chrome extension for highlighting codes of [Medium](https://medium.com/) Articles, but now, it can highlight codes in any websites that have `<pre/>` element.
 
 You can watch a [video](https://www.youtube.com/watch?v=XdkuZrC1PJQ) to preview it.
 
@@ -19,6 +18,8 @@ You can watch a [video](https://www.youtube.com/watch?v=XdkuZrC1PJQ) to preview 
 ## Install & Download
 
 Check [this](https://chrome.google.com/webstore/detail/code-block-beautifier/gpcjjddhdnilcbddlonlfgdbejfboonn) on Chrome app store.
+
+Then you can test it with this [article](https://medium.com/@haixiang6123/do-you-really-know-new-in-js-6ce794874f44).
 
 ## Screenshot
 
